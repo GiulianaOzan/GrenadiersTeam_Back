@@ -334,7 +334,7 @@ public class Sprint3Application {
 					.build();
 			DetallePedido detallePedido2 = DetallePedido.builder()
 					.cantidad(4)
-					.subtotal(600)
+					.subtotal(6050)
 					.subtotalCosto(5000)
 					.build();
 
