@@ -244,7 +244,7 @@ public class Sprint3Application {
 					.build();
 
 			Cliente cliente2 = Cliente.builder()
-					.nombre("Arnaldo")
+					.nombre("Enrique")
 					.apellido("Gomez")
 					.email("arnaldo10@gmail.com")
 					.telefono("261568548")
