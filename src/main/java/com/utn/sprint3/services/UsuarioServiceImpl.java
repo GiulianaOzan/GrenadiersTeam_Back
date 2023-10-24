@@ -27,7 +27,9 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
     @Override
     public List<Usuario> search(String filtro) throws Exception {
         try{
+            //List<Usuario> usuarios = usuarioRepository.findByUsername(filtro);
             List<Usuario> usuarios = usuarioRepository.search(filtro);
+            //List<Usuario> usuarios = usuarioRepository.search(filtro);
             return usuarios;
 
         }catch (Exception e){
