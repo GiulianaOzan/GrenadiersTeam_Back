@@ -13,27 +13,27 @@ import java.util.List;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
-    List<Usuario> findByauth0IdAndUsername(String auth0Id, String username);
-        Page<Usuario> findByUsername(String username, Pageable pageable);
+    List<Usuario> findByIdAndUsername(Long id, String username);
+        Page<Usuario> findByIdAndUsername(Long id, String username, Pageable pageable);
 
 
     //anotacion jpql parmetros indexados
-    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro% ")
+    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro% OR u.id LIKE %:filtro% ")
     List<Usuario> search(String filtro);
 
-    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro% ")
+    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro% OR u.id LIKE %:filtro% ")
     Page<Usuario> search(String filtro, Pageable pageable);
 
 
     //Query nativo
     @Query(
-            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro% ",
+            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro% OR usuario.id LIKE %:filtro%",
             nativeQuery = true
     )
     List<Usuario> searchNativo(String filtro);
 
     @Query(
-            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro% ",
+            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro% OR usuario.id LIKE %:filtro% ",
             nativeQuery = true
     )
     Page<Usuario> searchNativo(String filtro, Pageable pageable);
