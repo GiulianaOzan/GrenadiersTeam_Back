@@ -33,7 +33,7 @@ public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServic
     public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
 
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "\"}"));
         }
