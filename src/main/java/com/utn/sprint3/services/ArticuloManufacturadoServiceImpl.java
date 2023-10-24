@@ -23,6 +23,9 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
 
     public List<ArticuloManufacturado> search(String filtro) throws Exception {
         try{
+
+         // List<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.findByDenominacionAndDescripcion(filtro,filtro);
+         // List<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.search(filtro);
             List<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.searchNativo(filtro);
             return articuloManufacturados;
 
@@ -33,6 +36,8 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
 
     public Page<ArticuloManufacturado> search(String filtro, Pageable pageable) throws Exception {
         try{
+            //Page<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.findByDenominacionAndDescripcion(filtro,filtro, pageable);
+            //Page<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.search(filtro, pageable);
             Page<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.searchNativo(filtro, pageable);
             return articuloManufacturados;
 
