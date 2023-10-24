@@ -260,9 +260,9 @@ public class Sprint3Application {
 			//CREO DOMICILIO ---------------------------------------------------------------
 
 			Domicilio domicilio1 = Domicilio.builder()
-					.calle("Alvarez Condarco")
+					.calle("Avellaneda")
 					.codigoPostal(5533)
-					.localidad("El Vergel")
+					.localidad("El Bermejo")
 					.pisoDpto(5)
 					.numero(22)
 					.numeroDpto(3)
@@ -272,9 +272,9 @@ public class Sprint3Application {
 					.build();
 
 			Domicilio domicilio2 = Domicilio.builder()
-					.calle("Matienzo")
+					.calle("Cambiaghi")
 					.codigoPostal(8899)
-					.localidad("Colonia Junin")
+					.localidad("Villa Tulumaya")
 					.pisoDpto(7)
 					.numero(26)
 					.numeroDpto(9)
