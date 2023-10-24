@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, Long>{
+public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, Long> implements ArticuloInsumoService{
     @Autowired
     private ArticuloInsumoRepository articuloInsumoRepository;
 
@@ -20,6 +20,7 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
         this.articuloInsumoRepository = articuloInsumoRepository;
     }
 
+    @Override
     public List<ArticuloInsumo> search(String filtro) throws Exception {
         try{
             List<ArticuloInsumo> articuloInsumos = articuloInsumoRepository.searchNativo(filtro);
@@ -31,6 +32,7 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
     }
 
 
+    @Override
     public Page<ArticuloInsumo> search(String filtro, Pageable pageable) throws Exception {
         try{
             Page<ArticuloInsumo> articuloInsumos = articuloInsumoRepository.searchNativo(filtro, pageable);

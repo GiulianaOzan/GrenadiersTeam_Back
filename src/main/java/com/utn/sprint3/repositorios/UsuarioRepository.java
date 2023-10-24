@@ -13,7 +13,8 @@ import java.util.List;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
-    List<Usuario> findByUsername(String username);
+    List<Usuario> findByauth0IdAndUsername(String auth0Id, String username);
+        Page<Usuario> findByUsername(String username, Pageable pageable);
 
 
     //anotacion jpql parmetros indexados
