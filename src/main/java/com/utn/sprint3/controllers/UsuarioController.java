@@ -29,7 +29,7 @@ public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServic
 
     }
 
-    @GetMapping("/search/Paged")
+    @GetMapping("/searchPaged")
     public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
 
         try {

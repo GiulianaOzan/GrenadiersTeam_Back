@@ -20,7 +20,7 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         super(baseRepository);
         this.articuloManufacturadoRepository = articuloManufacturadoRepository;
     }
-
+    @Override
     public List<ArticuloManufacturado> search(String filtro) throws Exception {
         try{
 
@@ -34,6 +34,7 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
+    @Override
     public Page<ArticuloManufacturado> search(String filtro, Pageable pageable) throws Exception {
         try{
             //Page<ArticuloManufacturado> articuloManufacturados = articuloManufacturadoRepository.findByDenominacionAndDescripcion(filtro,filtro, pageable);

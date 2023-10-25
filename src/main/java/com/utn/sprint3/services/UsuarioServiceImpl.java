@@ -40,7 +40,7 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
     @Override
     public Page<Usuario> search(String filtro, Pageable pageable) throws Exception {
         try{
-            Page<Usuario> usuarios = usuarioRepository.search(filtro, pageable);
+            Page<Usuario> usuarios = usuarioRepository.searchNativo(filtro, pageable);
             return usuarios;
 
         }catch (Exception e){
