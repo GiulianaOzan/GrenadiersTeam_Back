@@ -29,6 +29,7 @@ public class Domicilio extends BaseEntidad{
     private int codigoPostal;
 
     @NotNull
+    @Column(name = "localidad")
     private String localidad;
 
     @Column(name = "numero_vivienda")

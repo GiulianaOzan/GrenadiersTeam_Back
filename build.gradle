@@ -27,6 +27,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// https://mvnrepository.com/artifact/org.hibernate/hibernate-envers
 	implementation 'org.hibernate:hibernate-envers:6.1.7.Final'
+	implementation 'org.jetbrains:annotations:24.0.0'
+	implementation 'org.jetbrains:annotations:24.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'

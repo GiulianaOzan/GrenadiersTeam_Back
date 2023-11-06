@@ -79,7 +79,7 @@ public class Sprint3Application {
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
-					.rubroPadre(rubro0)
+					//.rubroPadre(rubro0)
 					.build();
 
 			RubroArticulo rubro2 = RubroArticulo.builder()
@@ -87,7 +87,7 @@ public class Sprint3Application {
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
-					.rubroPadre(rubro0)
+					//.rubroPadre(rubro0)
 					.build();
 
 			rubroArticuloRepository.save(rubro0);
@@ -118,7 +118,7 @@ public class Sprint3Application {
 
 			// CREAR INSTANCIA DE ARTICULO INSUMO ------------------------------------------
 
-			ArticuloInsumo articuloInsumo1 = ArticuloInsumo.builder()
+			Articulo_Insumo articuloInsumo1 = Articulo_Insumo.builder()
 					.denominacion("Harina 000")
 					.precioCompra(500)
 					.stockMinimo(8)
@@ -128,7 +128,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
 					.build();
-			ArticuloInsumo articuloInsumo2 = ArticuloInsumo.builder()
+			Articulo_Insumo articuloInsumo2 = Articulo_Insumo.builder()
 					.denominacion("Queso cheddar")
 					.precioCompra(300)
 					.stockMinimo(5)

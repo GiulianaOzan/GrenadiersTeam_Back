@@ -2,10 +2,9 @@ package com.utn.sprint3.entidades;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
-
 import java.util.Date;
 import java.util.List;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name = "rubro_articulo")
@@ -13,16 +12,15 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Data
 @Builder
 public class RubroArticulo extends BaseEntidad {
 
-    @ManyToOne()
-    @JoinColumn(name = "id_rubro_padre")
-    private RubroArticulo rubroPadre;
+    //@ManyToOne
+    //@JoinColumn(name = "id_rubro_padre")
+    //private RubroArticulo rubroPadre;
 
-    @OneToMany(mappedBy = "rubroPadre")
-    private List<RubroArticulo> subRubros;
+    //@OneToMany(mappedBy = "rubroPadre")
+    //private List<RubroArticulo> subRubros;
 
     @NotNull
     private String denominacion;
@@ -40,4 +38,10 @@ public class RubroArticulo extends BaseEntidad {
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
 
+    @ManyToOne
+    @JoinColumn(name = "id_rubro_padre")
+    private RubroArticulo rubroPadre;
+
+    @OneToMany(mappedBy = "rubroPadre")
+    private List<RubroArticulo> subRubros;
 }

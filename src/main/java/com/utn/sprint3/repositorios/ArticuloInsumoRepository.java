@@ -1,36 +1,38 @@
 package com.utn.sprint3.repositorios;
 
-import com.utn.sprint3.entidades.ArticuloInsumo;
+import com.utn.sprint3.entidades.Articulo_Insumo;
+import com.utn.sprint3.entidades.Articulo_Insumo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ArticuloInsumoRepository extends BaseRepository <ArticuloInsumo,Long> {
-    List<ArticuloInsumo> findByIdAndDenominacion(Long id, String denominacion);
-    Page<ArticuloInsumo> findByIdAndDenominacion(Long id, String denominacion, Pageable pageable);
+public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo, Long> {
+    List<Articulo_Insumo> findByIdAndDenominacion(Long id, String denominacion);
+    Page<Articulo_Insumo> findByIdAndDenominacion(Long id, String denominacion, Pageable pageable);
 
-    //anotacion jpql parmetros indexados
-    @Query(value = "SELECT a FROM ArticuloInsumo a WHERE a.id LIKE%:filtro% OR a.denominacion LIKE %:filtro%")
-    List<ArticuloInsumo> search(String filtro);
+    // Consulta JPQL con parámetros indexados
+    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro% OR ai.id LIKE %:filtro%")
+    List<Articulo_Insumo> search(@Param("filtro") String filtro);
 
-    @Query(value = "SELECT a FROM ArticuloInsumo a WHERE a.id LIKE%:filtro% OR a.denominacion LIKE %:filtro%")
-    Page<ArticuloInsumo> search(String filtro, Pageable pageable);
+    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro% OR ai.id LIKE %:filtro%")
+    Page<Articulo_Insumo> search(@Param("filtro") String filtro, Pageable pageable);
 
-    //Query nativo
+    // Consulta nativa
     @Query(
-            value = "SELECT * FROM ArticuloInsumo WHERE a.id LIKE%:filtro% OR a.denominacion LIKE %:filtro%",
+            value = "SELECT * FROM Articulo_Insumo ai WHERE articulo_insumo.denominacion LIKE %:filtro% OR articulo_insumo.id LIKE %:filtro%",
             nativeQuery = true
     )
-    List<ArticuloInsumo> searchNativo(String filtro);
+    List<Articulo_Insumo> searchNativo(@Param("filtro") String filtro);
 
     @Query(
-            value = "SELECT * FROM ArticuloInsumo WHERE a.id LIKE%:filtro% OR a.denominacion LIKE %:filtro%",
+            value = "SELECT * FROM Articulo_Insumo ai WHERE articulo_insumo.denominacion LIKE %:filtro% OR articulo_insumo.id LIKE %:filtro%",
             nativeQuery = true
     )
-    Page<ArticuloInsumo> searchNativo(String filtro,Pageable pageable);
+    Page<Articulo_Insumo> searchNativo(@Param("filtro") String filtro, Pageable pageable);
 }

@@ -23,11 +23,11 @@ public class DetalleArticuloManufacturado extends BaseEntidad{
     @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_articulo_insumo")
-    private ArticuloInsumo articuloInsumo;
+    private Articulo_Insumo articuloInsumo;
 
-    /*@NotNull
+    @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_articulo_manufacturado")
-    private ArticuloManufacturado articuloManufacturado; NO VA CAMBIA LA NAVEGABILIDAD*/
+    private ArticuloManufacturado articuloManufacturado; //NO VA CAMBIA LA NAVEGABILIDAD*/
 
 }

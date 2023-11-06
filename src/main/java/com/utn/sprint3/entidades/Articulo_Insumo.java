@@ -8,16 +8,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "articulo_insumo")
+@Table(name = "articulo_Insumo")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Data
 @Builder
-public class ArticuloInsumo extends BaseEntidad {
+public class Articulo_Insumo extends BaseEntidad {
 
     @NotNull
+    @Column(name = "denominacion")
     private String denominacion;
 
     @Column(name = "url_imagen")

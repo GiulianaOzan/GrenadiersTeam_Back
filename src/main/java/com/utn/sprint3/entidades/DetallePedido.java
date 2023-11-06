@@ -29,7 +29,7 @@ public class DetallePedido extends BaseEntidad{
 
     @ManyToOne()
     @JoinColumn(name = "id_articulo_insumo")
-    private ArticuloInsumo articuloInsumo;
+    private Articulo_Insumo articuloInsumo;
 
     @ManyToOne()
     @JoinColumn(name = "id_articulo_manufacturado")
