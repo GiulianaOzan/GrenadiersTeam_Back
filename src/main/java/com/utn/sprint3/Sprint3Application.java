@@ -210,8 +210,7 @@ public class Sprint3Application {
 
 
 			//VINCULAR DETALLE ART MANU A ART MANUF ---------------------------------------
-			detalleArticuloManufacturado1.setArticuloManufacturado(articuloManufacturado1);
-			detalleArticuloManufacturado2.setArticuloManufacturado(articuloManufacturado2);
+
 
 
 
