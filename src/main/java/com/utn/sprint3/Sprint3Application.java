@@ -210,9 +210,9 @@ public class Sprint3Application {
 
 
 			//VINCULAR DETALLE ART MANU A ART MANUF ---------------------------------------
+			detalleArticuloManufacturado1.setArticuloManufacturado(articuloManufacturado1);
+			detalleArticuloManufacturado2.setArticuloManufacturado(articuloManufacturado2);
 
-			articuloManufacturado1.agregarDetalleArticuloManufacturado(detalleArticuloManufacturado1);
-			articuloManufacturado2.agregarDetalleArticuloManufacturado(detalleArticuloManufacturado2);
 
 
 			//Vinculamos el rubro gral a los articulos manu --------------------------------
