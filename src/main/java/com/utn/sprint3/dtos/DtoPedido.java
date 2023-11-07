@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DTOPedido extends DtoBase{
+public class DtoPedido extends DtoBase{
     private Date fechaPedido;
     private double total;
     private TipoEnvio tipoEnvio;
