@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DtoCliente {
+public class DtoCliente extends DtoBase {
     private String nombre;
 
     private String apellido;
