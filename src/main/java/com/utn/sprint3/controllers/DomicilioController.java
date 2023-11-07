@@ -35,4 +35,26 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
 
     }
 
+    @GetMapping("/search1")
+    public ResponseEntity<?> searchByLocalidad(@RequestParam int filtrocodigoPostal) {
+
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByCodigoPostal(filtrocodigoPostal));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "\"}"));
+        }
+
+    }
+
+    @GetMapping("/search1Paged")
+    public ResponseEntity<?> search(@RequestParam int filtrocodigoPostal, Pageable pageable) {
+
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByCodigoPostal(filtrocodigoPostal, pageable));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "\"}"));
+        }
+
+    }
+
 }

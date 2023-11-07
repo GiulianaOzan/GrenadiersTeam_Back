@@ -64,8 +64,6 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
 
 
 
-
-
     // Consulta nativa
     @Query(
             value = "SELECT * FROM Pedido WHERE pedido.tipoEnvio = :tipoEnvio",

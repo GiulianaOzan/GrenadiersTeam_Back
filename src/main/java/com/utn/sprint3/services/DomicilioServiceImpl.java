@@ -43,4 +43,26 @@ public class DomicilioServiceImpl extends BaseServiceImpl<Domicilio, Long> imple
             throw new Exception(e.getMessage());
         }
     }
+
+    @Override
+    public List<Domicilio> searchByCodigoPostal(int filtrocodigoPostal) throws Exception {
+        try{
+            List<Domicilio> domicilios = domicilioRepository.searchByCodigoPostal(filtrocodigoPostal);
+            return domicilios;
+
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public Page<Domicilio> searchByCodigoPostal(int filtrocodigoPostal, Pageable pageable) throws Exception {
+        try{
+            Page<Domicilio> domicilios = domicilioRepository.searchByCodigoPostal(filtrocodigoPostal, pageable);
+            return domicilios;
+
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }

@@ -25,10 +25,10 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
 
 
     @Override
-    public List<Usuario> search(String filtro) throws Exception {
+    public List<Usuario> search(String username) throws Exception {
         try{
             //List<Usuario> usuarios = usuarioRepository.findByUsername(filtro);
-            List<Usuario> usuarios = usuarioRepository.search(filtro);
+            List<Usuario> usuarios = usuarioRepository.search(username);
             //List<Usuario> usuarios = usuarioRepository.search(filtro);
             return usuarios;
 
@@ -38,9 +38,9 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
     }
 
     @Override
-    public Page<Usuario> search(String filtro, Pageable pageable) throws Exception {
+    public Page<Usuario> search(String username, Pageable pageable) throws Exception {
         try{
-            Page<Usuario> usuarios = usuarioRepository.searchNativo(filtro, pageable);
+            Page<Usuario> usuarios = usuarioRepository.searchNativo(username, pageable);
             return usuarios;
 
         }catch (Exception e){

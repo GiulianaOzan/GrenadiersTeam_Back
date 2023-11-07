@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface UsuarioService extends BaseService<Usuario, Long>{
-    List<Usuario> search(String filtro) throws Exception;
+    List<Usuario> search(String username) throws Exception;
 
-    Page<Usuario> search(String filtro, Pageable pageable) throws Exception;
+    Page<Usuario> search(String username, Pageable pageable) throws Exception;
 }

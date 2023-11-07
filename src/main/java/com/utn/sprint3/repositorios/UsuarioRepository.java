@@ -18,23 +18,23 @@ public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
 
 
     //anotacion jpql parmetros indexados
-    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro%")
-    List<Usuario> search(String filtro);
+    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:username%")
+    List<Usuario> search(String username);
 
-    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro%")
-    Page<Usuario> search(String filtro, Pageable pageable);
+    @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:username%")
+    Page<Usuario> search(String username, Pageable pageable);
 
 
     //Query nativo
     @Query(
-            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro%",
+            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:username%",
             nativeQuery = true
     )
-    List<Usuario> searchNativo(String filtro);
+    List<Usuario> searchNativo(String username);
 
     @Query(
-            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:filtro%",
+            value = "SELECT * FROM Usuario WHERE usuario.username LIKE %:username%",
             nativeQuery = true
     )
-    Page<Usuario> searchNativo(String filtro, Pageable pageable);
+    Page<Usuario> searchNativo(String username, Pageable pageable);
 }

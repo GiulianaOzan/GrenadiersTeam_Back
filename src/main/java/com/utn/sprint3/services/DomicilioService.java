@@ -13,7 +13,7 @@ public interface DomicilioService extends BaseService<Domicilio, Long>{
 
     Page<Domicilio> searchByLocalidad(String filtrolocalidad, Pageable pageable) throws Exception;
 
-   //List<Domicilio> searchByCodigoPostal(int filtrocodigoPostal) throws Exception;
+   List<Domicilio> searchByCodigoPostal(int filtrocodigoPostal) throws Exception;
 
-    //Page<Domicilio> searchByCodigoPostal(int filtrocodigoPostal, Pageable pageable) throws Exception;
+    Page<Domicilio> searchByCodigoPostal(int filtrocodigoPostal, Pageable pageable) throws Exception;
 }

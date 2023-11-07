@@ -41,4 +41,25 @@ public interface DomicilioRepository extends BaseRepository<Domicilio, Long> {
     )
     Page<Domicilio> search(@Param("filtrolocalidad")String filtrolocalidad, Pageable pageable);
 
+    //Busqueda por codigo Postal
+    @Query(value = "SELECT d FROM Domicilio d WHERE d.codigoPostal = :filtrocodigoPostal ")
+    List<Domicilio> searchByCodigoPostal(@Param("filtrocodigoPostal")int filtrocodigoPostal);
+
+    @Query(value = "SELECT d FROM Domicilio d WHERE d.localidad = :filtrocodigoPostal ")
+    Page<Domicilio> searchByCodigoPostal(@Param("filtrocodigoPostal")int filtrocodigoPostal, Pageable pageable);
+
+
+    //Query nativo
+    @Query(
+            value = "SELECT * FROM Domicilio WHERE domicilio.codigoPostal = :filtrocodigoPostal",
+            nativeQuery = true
+    )
+    List<Domicilio> search(@Param("filtrocodigoPostal")int filtrocodigoPostal);
+
+    @Query(
+            value = "SELECT * FROM Domicilio WHERE domicilio.codigoPostal = :filtrocodigoPostal",
+            nativeQuery = true
+    )
+    Page<Domicilio> search(@Param("filtrocodigoPostal")int filtrocodigoPostal, Pageable pageable);
+
 }
