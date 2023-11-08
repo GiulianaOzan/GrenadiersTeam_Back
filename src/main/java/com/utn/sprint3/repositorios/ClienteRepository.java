@@ -26,13 +26,13 @@ public interface ClienteRepository extends BaseRepository <Cliente,Long> {
 
     //Query nativo
     @Query(
-            value = "SELECT * FROM Cliente WHERE cliente.nombre LIKE %:filtro% OR cliente.apellido LIKE %:DatoCliente%",
+            value = "SELECT * FROM Cliente WHERE cliente.nombre LIKE %:DatoCliente% OR cliente.apellido LIKE %:DatoCliente%",
             nativeQuery = true
     )
     List<Cliente> searchNativo(String DatoCliente);
 
     @Query(
-            value = "SELECT * FROM Cliente WHERE cliente.nombre LIKE %:filtro% OR cliente.apellido LIKE %:DatoCliente% ",
+            value = "SELECT * FROM Cliente WHERE cliente.nombre LIKE %:DatoCliente% OR cliente.apellido LIKE %:DatoCliente% ",
             nativeQuery = true
     )
     Page<Cliente> searchNativo(String DatoCliente, Pageable pageable);
