@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/domicilios")
 public class DomicilioController extends BaseControllerImpl<Domicilio, DomicilioServiceImpl>{
-    @GetMapping("/search")
+    @GetMapping("/searchByLocalidad")
     public ResponseEntity<?> searchByLocalidad(@RequestParam String filtrolocalidad) {
 
         try {
@@ -24,8 +24,8 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
 
     }
 
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtrolocalidad, Pageable pageable) {
+    @GetMapping("/searchByLocalidadPaged")
+    public ResponseEntity<?> searchByLocalidad(@RequestParam String filtrolocalidad, Pageable pageable) {
 
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByLocalidad(filtrolocalidad, pageable));
@@ -35,8 +35,8 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
 
     }
 
-    @GetMapping("/search1")
-    public ResponseEntity<?> searchByLocalidad(@RequestParam int filtrocodigoPostal) {
+    @GetMapping("/searchByCodigoPostal")
+    public ResponseEntity<?> searchByCodigoPostal(@RequestParam int filtrocodigoPostal) {
 
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByCodigoPostal(filtrocodigoPostal));
@@ -46,8 +46,8 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
 
     }
 
-    @GetMapping("/search1Paged")
-    public ResponseEntity<?> search(@RequestParam int filtrocodigoPostal, Pageable pageable) {
+    @GetMapping("/searchByCodigoPostalPaged")
+    public ResponseEntity<?> searchByCodigoPostal(@RequestParam int filtrocodigoPostal, Pageable pageable) {
 
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByCodigoPostal(filtrocodigoPostal, pageable));

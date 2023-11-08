@@ -33,7 +33,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
+// Tipo Envio
     @GetMapping("/searchByTipoEnvio")
     public ResponseEntity<?> searchByTipoEnvio(@RequestParam String tipoenvio) {
         try {

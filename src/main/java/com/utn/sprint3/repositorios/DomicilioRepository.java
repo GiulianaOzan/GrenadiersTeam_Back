@@ -17,7 +17,11 @@ import java.util.List;
 @Repository
 public interface DomicilioRepository extends BaseRepository<Domicilio, Long> {
     List<Domicilio> findByLocalidad(String localidad);
+    Page<Domicilio> findByLocalidad(String localidad, Pageable pageable);
+
+    List<Domicilio> findByCodigoPostal(int codigoPostal);
     Page<Domicilio> findByCodigoPostal(int codigoPostal, Pageable pageable);
+
 
 
     //anotacion jpql parmetros indexados
@@ -33,19 +37,19 @@ public interface DomicilioRepository extends BaseRepository<Domicilio, Long> {
             value = "SELECT * FROM Domicilio WHERE domicilio.localidad LIKE %:filtrolocalidad%",
             nativeQuery = true
     )
-    List<Domicilio> search(@Param("filtrolocalidad")String filtrolocalidad);
+    List<Domicilio> searchNativo(@Param("filtrolocalidad")String filtrolocalidad);
 
     @Query(
             value = "SELECT * FROM Domicilio WHERE domicilio.localidad LIKE %:filtrolocalidad%",
             nativeQuery = true
     )
-    Page<Domicilio> search(@Param("filtrolocalidad")String filtrolocalidad, Pageable pageable);
+    Page<Domicilio> searchNativo(@Param("filtrolocalidad")String filtrolocalidad, Pageable pageable);
 
     //Busqueda por codigo Postal
     @Query(value = "SELECT d FROM Domicilio d WHERE d.codigoPostal = :filtrocodigoPostal ")
     List<Domicilio> searchByCodigoPostal(@Param("filtrocodigoPostal")int filtrocodigoPostal);
 
-    @Query(value = "SELECT d FROM Domicilio d WHERE d.localidad = :filtrocodigoPostal ")
+    @Query(value = "SELECT d FROM Domicilio d WHERE d.codigoPostal = :filtrocodigoPostal ")
     Page<Domicilio> searchByCodigoPostal(@Param("filtrocodigoPostal")int filtrocodigoPostal, Pageable pageable);
 
 
@@ -54,12 +58,12 @@ public interface DomicilioRepository extends BaseRepository<Domicilio, Long> {
             value = "SELECT * FROM Domicilio WHERE domicilio.codigoPostal = :filtrocodigoPostal",
             nativeQuery = true
     )
-    List<Domicilio> search(@Param("filtrocodigoPostal")int filtrocodigoPostal);
+    List<Domicilio> searchNativo(@Param("filtrocodigoPostal")int filtrocodigoPostal);
 
     @Query(
             value = "SELECT * FROM Domicilio WHERE domicilio.codigoPostal = :filtrocodigoPostal",
             nativeQuery = true
     )
-    Page<Domicilio> search(@Param("filtrocodigoPostal")int filtrocodigoPostal, Pageable pageable);
+    Page<Domicilio> searchNativo(@Param("filtrocodigoPostal")int filtrocodigoPostal, Pageable pageable);
 
 }

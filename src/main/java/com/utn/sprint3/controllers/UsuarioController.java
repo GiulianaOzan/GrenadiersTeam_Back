@@ -1,6 +1,7 @@
 package com.utn.sprint3.controllers;
 
 import com.utn.sprint3.entidades.Usuario;
+import com.utn.sprint3.enums.Rol;
 import com.utn.sprint3.services.UsuarioServiceImpl;
 
 import org.springframework.http.HttpStatus;
@@ -38,5 +39,29 @@ public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServic
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "\"}"));
         }
 
+    }
+
+    @GetMapping("/searchByRol")
+    public ResponseEntity<?> searchByRol(@RequestParam String Rolfiltro) {
+        try {
+            Rol rol = Rol.valueOf(Rolfiltro);
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByRol(rol));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Rol no válido: " + Rolfiltro + "\"}");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
+    @GetMapping("/searchByRolPaged")
+    public ResponseEntity<?> searchByRol(@RequestParam String Rolfiltro, Pageable pageable) {
+        try {
+            Rol rol = Rol.valueOf(Rolfiltro);
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.searchByRol(rol, pageable));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Rol no válido: " + Rolfiltro + "\"}");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 }

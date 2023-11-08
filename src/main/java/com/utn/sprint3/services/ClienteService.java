@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ClienteService extends BaseService<Cliente, Long>{
-    List<Cliente> search(String filtro) throws Exception;
+    List<Cliente> search(String DatoCliente) throws Exception;
 
-    Page<Cliente> search(String filtro, Pageable pageable) throws Exception;
+    Page<Cliente> search(String DatoCliente, Pageable pageable) throws Exception;
 }

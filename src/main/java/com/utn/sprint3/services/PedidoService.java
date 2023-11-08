@@ -14,9 +14,6 @@ public interface PedidoService extends BaseService<Pedido, Long> {
 
     Page<Pedido> search(Date fechafiltro, Pageable pageable) throws Exception;
 
-    //List<Pedido> search1(TipoEnvio filtro) throws Exception;
-
-    //Page<Pedido> search1(TipoEnvio filtro, Pageable pageable) throws Exception;
 
     List<Pedido> searchByTipoEnvio(TipoEnvio tipoEnvio) throws Exception;
 

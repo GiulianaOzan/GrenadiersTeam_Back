@@ -16,6 +16,7 @@ import java.util.List;
 @Repository
 public interface PedidoRepository extends BaseRepository<Pedido, Long> {
     List<Pedido> findByFechaPedido(Date fechaPedido);
+
     Page<Pedido> findByFechaPedido(Date fechaPedido, Pageable pageable);
 
     List<Pedido> findByTipoEnvio(TipoEnvio tipoEnvio);
@@ -53,6 +54,20 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
     @Query("SELECT p FROM Pedido p WHERE p.tipoEnvio = :tipoEnvio")
     Page<Pedido> searchByTipoEnvio(@Param("tipoEnvio") TipoEnvio tipoEnvio, Pageable pageable);
 
+    //Consulta nativa
+
+    @Query(
+            value = "SELECT * FROM Pedido WHERE pedido.tipoEnvio = :tipoEnvio",
+            nativeQuery = true
+    )
+    List<Pedido> searchNativo(@Param("tipoEnvio") TipoEnvio tipoEnvio);
+
+    @Query(
+            value = "SELECT * FROM Pedido WHERE pedido.tipoEnvio = :tipoEnvio",
+            nativeQuery = true
+    )
+    Page<Pedido> searchNativo(@Param("tipoEnvio") TipoEnvio tipoEnvio, Pageable pageable);
+
 // Buscar por Estado
 
     @Query("SELECT p FROM Pedido p WHERE p.estado = :estado")
@@ -61,19 +76,19 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
     @Query("SELECT p FROM Pedido p WHERE p.estado = :estado")
     Page<Pedido> searchByEstadoPedido(@Param("estado") EstadoPedido estado, Pageable pageable);
 
-
-
-
-    // Consulta nativa
+    //Consulta nativa
     @Query(
-            value = "SELECT * FROM Pedido WHERE pedido.tipoEnvio = :tipoEnvio",
+            value = "SELECT * FROM Pedido WHERE pedido.estado = :estado",
             nativeQuery = true
     )
-    List<Pedido> searchNativo1(@Param("tipoEnvio") TipoEnvio tipoEnvio);
+    List<Pedido> searchNativo(@Param("estado") EstadoPedido estado);
 
     @Query(
-            value = "SELECT * FROM Pedido WHERE pedido.tipoEnvio = :tipoEnvio",
+            value = "SELECT * FROM Pedido WHERE pedido.estado = :estado",
             nativeQuery = true
     )
-    Page<Pedido> searchNativo1(@Param("tipoEnvio") TipoEnvio tipoEnvio, Pageable pageable);
+    Page<Pedido> searchNativo(@Param("estado") EstadoPedido estado, Pageable pageable);
+
+
+
 }

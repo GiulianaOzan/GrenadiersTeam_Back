@@ -15,13 +15,6 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Builder
 public class RubroArticulo extends BaseEntidad {
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_rubro_padre")
-    //private RubroArticulo rubroPadre;
-
-    //@OneToMany(mappedBy = "rubroPadre")
-    //private List<RubroArticulo> subRubros;
-
     @NotNull
     private String denominacion;
 
