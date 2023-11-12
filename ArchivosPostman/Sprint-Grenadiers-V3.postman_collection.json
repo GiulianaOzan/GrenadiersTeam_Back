@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "75e028b0-d2a0-43fd-8669-30c222e88344",
+		"_postman_id": "fe0bdf2e-ae3e-4aff-b5c1-b62f30452f1d",
 		"name": "Sprint-Grenadiers-V3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30237804"
+		"_exporter_id": "30204077",
+		"_collection_link": "https://restless-zodiac-788448.postman.co/workspace/PruebaApi~04e660dd-a78e-4270-a186-3d18beaee994/collection/30204077-fe0bdf2e-ae3e-4aff-b5c1-b62f30452f1d?action=share&source=collection_link&creator=30204077"
 	},
 	"item": [
 		{
@@ -2235,6 +2236,74 @@
 								"v1",
 								"rubrosgenerales",
 								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidadmedidas/search?DatosUnidadMedida=Kg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidadmedidas",
+								"search"
+							],
+							"query": [
+								{
+									"key": "DatosUnidadMedida",
+									"value": "Kg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchPaged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidadmedidas/searchPaged?paged?page=0&size=5&sort=id,asc&DatosUnidadMedida=Kg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidadmedidas",
+								"searchPaged"
+							],
+							"query": [
+								{
+									"key": "paged?page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "id,asc"
+								},
+								{
+									"key": "DatosUnidadMedida",
+									"value": "Kg"
+								}
 							]
 						}
 					},
