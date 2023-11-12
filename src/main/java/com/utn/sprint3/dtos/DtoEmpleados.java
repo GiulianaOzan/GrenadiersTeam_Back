@@ -16,7 +16,7 @@ public class DtoEmpleados {
 
     private Long id_Empleado;
     private String username_Empleado;
-gi
+
     @Enumerated(EnumType.STRING)
     private Rol rol;
     private String email_Empleado;
