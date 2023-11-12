@@ -1,18 +1,25 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DtoArticuloMasVendido;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.ArticuloManufacturado;
 import com.utn.sprint3.repositorios.ArticuloManufacturadoRepository;
 import com.utn.sprint3.repositorios.BaseRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
-public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloManufacturado, Long> implements ArticuloManufacturadoService{
+public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloManufacturado, Long> implements ArticuloManufacturadoService {
     @Autowired
     private ArticuloManufacturadoRepository articuloManufacturadoRepository;
 
@@ -20,6 +27,7 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         super(baseRepository);
         this.articuloManufacturadoRepository = articuloManufacturadoRepository;
     }
+
     @Override
     public List<ArticuloManufacturado> search(String filtro) throws Exception {
         try {
@@ -38,4 +46,27 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
+
+
+    @Override
+    public List<DtoArticuloMasVendido> filtradoPorProductoVendidoPorFecha(String fecha1, String fecha2) throws Exception {
+        try {
+            List<Object[]> entities = articuloManufacturadoRepository.filtradoPorProductoVendidoPorFecha(fecha1, fecha2);
+            List<DtoArticuloMasVendido> dtos = new ArrayList<>();
+
+            for (Object[] entity : entities) {
+                DtoArticuloMasVendido dto = new DtoArticuloMasVendido(
+                        (Long) entity[0],
+                        (String) entity[1],
+                        (BigDecimal) entity[2]
+                );
+
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

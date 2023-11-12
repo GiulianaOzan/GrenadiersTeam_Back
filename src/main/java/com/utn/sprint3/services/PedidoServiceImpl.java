@@ -1,5 +1,9 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DtoArticuloMasVendido;
+import com.utn.sprint3.dtos.DtoMovimientosMonetarios;
+import com.utn.sprint3.dtos.DtoPedidoEnvio;
+import com.utn.sprint3.dtos.DtoPedidoEstado;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.TipoEnvio;
@@ -10,6 +14,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,7 +50,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
 
     // Método para filtrar por tipo de envío
     @Override
-    public List<Pedido> searchByTipoEnvio(TipoEnvio tipoEnvio) throws Exception {
+    public List<DtoPedidoEnvio> searchByTipoEnvio(TipoEnvio tipoEnvio) throws Exception {
         try {
             return pedidoRepository.searchByTipoEnvio(tipoEnvio);
         } catch (Exception e) {
@@ -52,7 +59,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     }
 
     @Override
-    public Page<Pedido> searchByTipoEnvio(TipoEnvio tipoEnvio, Pageable pageable) throws Exception {
+    public Page<DtoPedidoEnvio> searchByTipoEnvio(TipoEnvio tipoEnvio, Pageable pageable) throws Exception {
         try {
             return pedidoRepository.searchByTipoEnvio(tipoEnvio, pageable);
         } catch (Exception e) {
@@ -62,7 +69,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
 
     // Método para filtrar por estado del pedido
     @Override
-    public List<Pedido> searchByEstadoPedido(EstadoPedido estado) throws Exception {
+    public List<DtoPedidoEstado> searchByEstadoPedido(EstadoPedido estado) throws Exception {
         try {
             return pedidoRepository.searchByEstadoPedido(estado);
         } catch (Exception e) {
@@ -71,11 +78,48 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     }
 
     @Override
-    public Page<Pedido> searchByEstadoPedido(EstadoPedido estado, Pageable pageable) throws Exception {
+    public Page<DtoPedidoEstado> searchByEstadoPedido(EstadoPedido estado, Pageable pageable) throws Exception {
         try {
             return pedidoRepository.searchByEstadoPedido(estado, pageable);
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
+
+    @Override
+    public List<DtoPedidoEstado> findBy() {
+        return pedidoRepository.findBy();
+    }
+
+    @Override
+    public List<DtoMovimientosMonetarios> calcularTotales(String fecha1, String fecha2) throws Exception {
+        try {
+            List<Object[]> entities = pedidoRepository.calcularTotales(fecha1, fecha2);
+            List<DtoMovimientosMonetarios> dtos = new ArrayList<>();
+
+            for (Object[] entity : entities) {
+                BigDecimal ingresos = (BigDecimal) entity[0];
+                BigDecimal costos = (BigDecimal) entity[1];
+                BigDecimal ganancias = (BigDecimal) entity[2];
+
+                // Formatear los valores con dos decimales
+                ingresos = ingresos.setScale(2, RoundingMode.HALF_UP);
+                costos = costos.setScale(2, RoundingMode.HALF_UP);
+                ganancias = ganancias.setScale(2, RoundingMode.HALF_UP);
+
+                DtoMovimientosMonetarios dto = new DtoMovimientosMonetarios(
+                        ingresos,
+                        costos,
+                        ganancias
+                );
+
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
 }

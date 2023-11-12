@@ -14,9 +14,13 @@ import java.util.List;
 @Repository
 public interface FacturaRepository extends BaseRepository <Factura,Long> {
     List<Factura> findByFechaFacturacion(Date fechaFacturacion);
+
     Page<Factura> findByFechaFacturacion(Date fechaFacturacion, Pageable pageable);
+
     List<Factura> findByFormaPago(FormaPago formaPago);
+
     Page<Factura> findByFormaPago(FormaPago formaPago, Pageable pageable);
+
     @Query("SELECT f FROM Factura f WHERE f.fechaFacturacion = :fechafiltro")
     List<Factura> search(@Param("fechafiltro") Date fechafiltro);
 
@@ -41,6 +45,7 @@ public interface FacturaRepository extends BaseRepository <Factura,Long> {
 
     @Query("SELECT f FROM Factura f WHERE f.formaPago = :formaPago")
     Page<Factura> searchByFormaPago(@Param("formaPago") FormaPago formaPago, Pageable pageable);
+
 
 
 }

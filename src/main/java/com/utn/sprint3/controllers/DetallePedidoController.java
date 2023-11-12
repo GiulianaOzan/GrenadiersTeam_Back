@@ -1,13 +1,14 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.dtos.DtoArticuloMasVendido;
 import com.utn.sprint3.entidades.DetallePedido;
-import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.services.DetallePedidoServiceImpl;
-import com.utn.sprint3.services.PedidoServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -33,5 +34,10 @@ public class DetallePedidoController extends BaseControllerImpl<DetallePedido, D
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "\"}"));
         }
     }
+
+//    @GetMapping("/getArticulosMasVendidos")
+//    public List<DtoArticuloMasVendido> getArticulosMasVendidos() {
+//        return servicio.findArticulosMasVendidos();
+//    }
 }
 

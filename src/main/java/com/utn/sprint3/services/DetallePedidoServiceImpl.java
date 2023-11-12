@@ -1,6 +1,6 @@
 package com.utn.sprint3.services;
 
-import com.utn.sprint3.entidades.DetalleArticuloManufacturado;
+import com.utn.sprint3.dtos.DtoArticuloMasVendido;
 import com.utn.sprint3.entidades.DetallePedido;
 import com.utn.sprint3.repositorios.BaseRepository;
 import com.utn.sprint3.repositorios.DetallePedidoRepository;
@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -39,4 +40,6 @@ public class DetallePedidoServiceImpl extends BaseServiceImpl<DetallePedido, Lon
             throw new Exception(e.getMessage());
         }
     }
+
+
 }

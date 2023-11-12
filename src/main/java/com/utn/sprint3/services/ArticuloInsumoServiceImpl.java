@@ -6,11 +6,14 @@ import com.utn.sprint3.entidades.Cliente;
 import com.utn.sprint3.repositorios.ArticuloInsumoRepository;
 import com.utn.sprint3.repositorios.BaseRepository;
 import com.utn.sprint3.repositorios.ClienteRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,4 +42,6 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<Articulo_Insumo, 
             throw new Exception(e.getMessage());
         }
     }
+
+
 }

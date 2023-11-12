@@ -57,7 +57,9 @@ public class Factura extends BaseEntidad{
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
 
-
+    @ManyToOne
+    @JoinColumn(name = "factura_id")
+    private Factura factura;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_factura")
     @Builder.Default

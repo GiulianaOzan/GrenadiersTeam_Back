@@ -1,5 +1,8 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.dtos.DtoCliente;
+import com.utn.sprint3.dtos.DtoPedidoEnvio;
+import com.utn.sprint3.dtos.DtoPedidoEstado;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.TipoEnvio;
@@ -82,7 +85,20 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    
 
+
+    @GetMapping("/findAllPedidosEstado")
+    public List<DtoPedidoEstado> findAllPedidosEstado() {
+        return servicio.findBy();
+
+    }
+    @GetMapping("/filtradosCostos")
+    public ResponseEntity<?> calcularTotales(@RequestParam String fecha1, String fecha2) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(this.servicio.calcularTotales(fecha1, fecha2));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
 
 }

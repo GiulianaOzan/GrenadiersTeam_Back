@@ -1,19 +1,11 @@
 package com.utn.sprint3.dtos;
 
+public interface DtoCliente {
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+    String getnombre();
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class DtoCliente extends DtoBase {
-    private String nombre;
+    String getapellido();
 
-    private String apellido;
+    String gettelefono();
 
-    private String telefono;
-
-    private String email;
 }

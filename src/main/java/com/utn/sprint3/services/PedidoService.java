@@ -1,5 +1,9 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DtoArticuloMasVendido;
+import com.utn.sprint3.dtos.DtoMovimientosMonetarios;
+import com.utn.sprint3.dtos.DtoPedidoEnvio;
+import com.utn.sprint3.dtos.DtoPedidoEstado;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.TipoEnvio;
@@ -15,11 +19,19 @@ public interface PedidoService extends BaseService<Pedido, Long> {
     Page<Pedido> search(Date fechafiltro, Pageable pageable) throws Exception;
 
 
-    List<Pedido> searchByTipoEnvio(TipoEnvio tipoEnvio) throws Exception;
+    List<DtoPedidoEnvio> searchByTipoEnvio(TipoEnvio tipoEnvio) throws Exception;
 
-    Page<Pedido> searchByTipoEnvio(TipoEnvio tipoEnvio, Pageable pageable) throws Exception;
+    Page<DtoPedidoEnvio> searchByTipoEnvio(TipoEnvio tipoEnvio, Pageable pageable) throws Exception;
 
-    List<Pedido> searchByEstadoPedido(EstadoPedido estado) throws Exception;
+    List<DtoPedidoEstado> searchByEstadoPedido(EstadoPedido estado) throws Exception;
 
-    Page<Pedido> searchByEstadoPedido(EstadoPedido estado, Pageable pageable) throws Exception;
+    Page<DtoPedidoEstado> searchByEstadoPedido(EstadoPedido estado, Pageable pageable) throws Exception;
+
+    List<DtoPedidoEstado> findBy();
+
+    List<DtoMovimientosMonetarios> calcularTotales(String fecha1, String fecha2) throws Exception;
+
+
+
+
 }
