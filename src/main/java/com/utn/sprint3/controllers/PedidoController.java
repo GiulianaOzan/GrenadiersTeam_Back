@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+import static com.utn.sprint3.enums.EstadoPedido.Cocina;
+import static com.utn.sprint3.enums.EstadoPedido.Preparacion;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping(path = "api/v1/pedidos")
@@ -100,5 +103,33 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
             return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+
+    /*@GetMapping("/PedidosCocina")
+    public ResponseEntity<?> ObtenerPedidoCocina() {
+        try {
+            EstadoPedido estadoPedido = EstadoPedido.Iniciado; // Puedes cambiar esto según tu estructura
+            return ResponseEntity.status(HttpStatus.OK).body(this.servicio.ObtenerPedidoCocina());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }*/
+
+   /* @GetMapping("/PedidoCocina")
+    public ResponseEntity<?> obtenerPedidosEnCocina() {
+        try {
+            // Asumiendo que EstadoPedido es un enum y Cocina es un valor válido en ese enum
+            EstadoPedido estado = EstadoPedido.Cocina; // Puedes cambiar esto según tu estructura
+            List<Pedido> pedidosEnCocina = servicio.searchByEstadoPedido(estado);
+
+            if (!pedidosEnCocina.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidosEnCocina);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron pedidos en estado de cocina.\"}");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }*/
+
 
 }

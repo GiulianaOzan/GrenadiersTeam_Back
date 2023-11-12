@@ -4,6 +4,8 @@ public enum EstadoPedido {
 
     Iniciado,
 
+    Cocina,
+
     Entregado,
 
     Preparacion

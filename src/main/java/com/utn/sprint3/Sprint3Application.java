@@ -304,8 +304,29 @@ public class Sprint3Application {
 					.fechaModificacion(fecha)
 					.build();
 
+			Usuario usuario3 = Usuario.builder()
+					.auth0Id("User03")
+					.username("Delivery")
+					.rol(Rol.Delivery)
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
+			Usuario usuario4 = Usuario.builder()
+					.auth0Id("User04")
+					.username("Administrador2")
+					.rol(Rol.Administrador)
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
+
 			usuarioRepository.save(usuario1);
 			usuarioRepository.save(usuario2);
+			usuarioRepository.save(usuario3);
+			usuarioRepository.save(usuario4);
+
+
 
 			//VINCULAR DOMICILIO CON CLIENTE -----------------------------------------------
 

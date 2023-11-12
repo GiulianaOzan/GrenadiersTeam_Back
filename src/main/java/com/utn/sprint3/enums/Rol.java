@@ -6,7 +6,7 @@ public enum Rol {
 
     Cliente,
 
-    Empleado,
+    Delivery,
 
     Cajero
 }

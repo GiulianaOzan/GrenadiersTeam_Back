@@ -25,7 +25,11 @@ public class Usuario extends BaseEntidad{
     @Column(name = "username", nullable = false)
     private String username;
 
-   private Rol rol;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol")
+    private Rol rol;
+
+   private String email;
 
     @NotNull
     @Column(name = "fecha_alta")
