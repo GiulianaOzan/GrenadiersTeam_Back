@@ -542,6 +542,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "filtradoForFecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articulomanufacturados/RankingProductos?fecha1=2023-09-09&fecha2=2023-11-11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articulomanufacturados",
+								"RankingProductos"
+							],
+							"query": [
+								{
+									"key": "fecha1",
+									"value": "2023-09-09"
+								},
+								{
+									"key": "fecha2",
+									"value": "2023-11-11"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1012,6 +1044,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "findByAllClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes/findByAllClientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"findByAllClientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fitradoRanking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes/filtradosRanking?fecha1=2023-09-09&fecha2=2023-11-11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"filtradosRanking"
+							],
+							"query": [
+								{
+									"key": "fecha1",
+									"value": "2023-09-09"
+								},
+								{
+									"key": "fecha2",
+									"value": "2023-11-11"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1045,7 +1131,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/pedidos/1",
+							"raw": "http://localhost:8080/api/v1/pedidos/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1055,7 +1141,7 @@
 								"api",
 								"v1",
 								"pedidos",
-								"1"
+								""
 							]
 						}
 					},
@@ -1067,7 +1153,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/pedidos/searchByTipoEnvio?tipoenvio=TakeAway",
+							"raw": "http://localhost:8080/api/v1/pedidos/searchByTipoEnvio?tipoenvio=Delivery",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1082,7 +1168,7 @@
 							"query": [
 								{
 									"key": "tipoenvio",
-									"value": "TakeAway"
+									"value": "Delivery"
 								}
 							]
 						}
@@ -1135,7 +1221,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/pedidos/searchByEstado?Estado=Iniciado",
+							"raw": "http://localhost:8080/api/v1/pedidos/searchByEstado?Estado=Preparacion",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1150,7 +1236,7 @@
 							"query": [
 								{
 									"key": "Estado",
-									"value": "Iniciado"
+									"value": "Preparacion"
 								}
 							]
 						}
@@ -1242,6 +1328,46 @@
 								"v1",
 								"pedidos",
 								"searchPaged"
+							],
+							"query": [
+								{
+									"key": "fechafiltro",
+									"value": "9/9/2023"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "id,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "calcularTotales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/pedidos/calcularTotales?fechafiltro=9/9/2023&page=0&size=5&sort=id,asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"pedidos",
+								"calcularTotales"
 							],
 							"query": [
 								{
@@ -1404,6 +1530,36 @@
 									"key": "fechafiltro",
 									"value": "9/9/2023"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": 3,\r\n        \"fechaFacturacion\": \"2023-11-11\",\r\n        \"mpPaymentId\": 37,\r\n        \"mpMerchantOrderId\": 65,\r\n        \"mpPreferenceId\": \"MP998\",\r\n        \"mpPaymentType\": \"MP785\",\r\n        \"formaPago\": \"Efectivo\",\r\n        \"totalVenta\": 10000.0,\r\n        \"fechaAlta\": \"2023-09-09\",\r\n        \"fechaModificacion\": \"2023-09-09\",\r\n        \"fechaBaja\": \"2023-09-09\",\r\n        \"detalleFacturas\": [\r\n            {\r\n                \"id\": 3,\r\n                \"cantidad\": 9,\r\n                \"subtotal\": 8000.0,\r\n                \"articuloInsumo\": {\r\n                    \"id\": 2,\r\n                    \"denominacion\": \"Queso cheddar\",\r\n                    \"urlImagen\": \"Cheddar.jpg\",\r\n                    \"precioCompra\": 300.0,\r\n                    \"stockActual\": 50,\r\n                    \"stockMinimo\": 5,\r\n                    \"unidadMedida\": {\r\n                        \"id\": 2,\r\n                        \"denominacion\": \"Insumos\",\r\n                        \"abreviatura\": \"cm3\",\r\n                        \"fechaAlta\": \"2023-09-09\",\r\n                        \"fechaModificacion\": \"2023-09-09\",\r\n                        \"fechaBaja\": \"2023-09-09\"\r\n                    },\r\n                    \"rubroArticulo\": {\r\n                        \"id\": 1,\r\n                        \"denominacion\": \"Insumos\",\r\n                        \"fechaAlta\": \"2023-09-09\",\r\n                        \"fechaModificacion\": \"2023-09-09\",\r\n                        \"fechaBaja\": \"2023-09-09\",\r\n                        \"rubroPadre\": null,\r\n                        \"subRubros\": []\r\n                    },\r\n                    \"fechaAlta\": \"2023-09-09\",\r\n                    \"fechaModificacion\": \"2023-09-09\",\r\n                    \"fechaBaja\": \"2023-09-09\"\r\n                },\r\n                \"articuloManufacturado\": {\r\n                    \"id\": 1,\r\n                    \"denominacion\": \"Prepizza oregano\",\r\n                    \"descripcion\": \"precalentada\",\r\n                    \"tiempoEstimadoCocina\": 15,\r\n                    \"precioVenta\": 600.0,\r\n                    \"costo\": 700.0,\r\n                    \"urlImagen\": \"Prepiza.jpg\",\r\n                    \"rubroGeneral\": {\r\n                        \"id\": 1,\r\n                        \"denominacion\": \"Manufacturados\"\r\n                    },\r\n                    \"detalleArticuloManufacturados\": [],\r\n                    \"fechaAlta\": \"2023-11-11\",\r\n                    \"fechaModificacion\": \"2023-11-11\",\r\n                    \"fechaBaja\": \"2023-11-11\"\r\n                }\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/facturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"facturas"
 							]
 						}
 					},
@@ -2275,34 +2431,33 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/unidadmedidas/searchPaged?paged?page=0&size=5&sort=id,asc&DatosUnidadMedida=Kg",
+							"raw": "http://localhost:8080/ebs/articulo/findMostSold?date1=2023-01-01 12:00:00&date2=2023-01-01 12:00:00&page=0&size=5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
-								"v1",
-								"unidadmedidas",
-								"searchPaged"
+								"ebs",
+								"articulo",
+								"findMostSold"
 							],
 							"query": [
 								{
-									"key": "paged?page",
+									"key": "date1",
+									"value": "2023-01-01 12:00:00"
+								},
+								{
+									"key": "date2",
+									"value": "2023-01-01 12:00:00"
+								},
+								{
+									"key": "page",
 									"value": "0"
 								},
 								{
 									"key": "size",
 									"value": "5"
-								},
-								{
-									"key": "sort",
-									"value": "id,asc"
-								},
-								{
-									"key": "DatosUnidadMedida",
-									"value": "Kg"
 								}
 							]
 						}
