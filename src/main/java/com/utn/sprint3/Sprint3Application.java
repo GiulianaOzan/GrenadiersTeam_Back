@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,6 +44,8 @@ public class Sprint3Application {
 	UnidadMedidaRepository unidadMedidaRepository;
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 
@@ -294,6 +297,7 @@ public class Sprint3Application {
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
 					.build();
 			Usuario usuario2 = Usuario.builder()
 					.auth0Id("User02")

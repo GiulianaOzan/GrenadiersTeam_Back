@@ -14,13 +14,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
-    List<Usuario> findByUsername( String username);
+    Optional<Usuario> findByUsername( String username);
     Page<Usuario> findByUsername(String username, Pageable pageable);
     List<Usuario> findByRol(Rol rol);
     Page<Usuario> findByRol(Rol rol, Pageable pageable);
+
 
 
     //anotacion jpql parmetros indexados
