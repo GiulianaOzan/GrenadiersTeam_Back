@@ -70,6 +70,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
+
 					.build();
 
 			RubroArticulo rubro1 = RubroArticulo.builder()
@@ -78,7 +79,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					//.rubroPadre(rubro0)
+					.rubroPadre(rubro0)
 					.build();
 
 			RubroArticulo rubro2 = RubroArticulo.builder()
@@ -87,7 +88,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					//.rubroPadre(rubro0)
+					.rubroPadre(rubro0)
 					.build();
 
 			rubroArticuloRepository.save(rubro0);
@@ -139,15 +140,27 @@ public class Sprint3Application {
 					.fechaModificacion(fecha)
 					.build();
 
+			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
+					.denominacion("Queso Muzzarella")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(50)
+					.urlImagen("queso.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
 
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
-			articuloInsumo1.setRubroArticulo(rubro0);
-			articuloInsumo2.setRubroArticulo(rubro0);
+			articuloInsumo1.setRubroArticulo(rubro1);
+			articuloInsumo2.setRubroArticulo(rubro1);
+			articuloInsumo3.setRubroArticulo(rubro1);
 
 			articuloInsumoRepository.save(articuloInsumo1);
 			articuloInsumoRepository.save(articuloInsumo2);
+			articuloInsumoRepository.save(articuloInsumo3);
 
 			// Vinculamos la unidad medida al articulo -------------------------------------
 
