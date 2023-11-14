@@ -1,6 +1,5 @@
 package com.utn.sprint3.Jwt;
 
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +20,7 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter  {
-        private final JwtService jwtService;
+        private final com.utn.sprint3.Jwt.JwtService jwtService;
         private final UserDetailsService userDetailsService;
 
 

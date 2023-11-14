@@ -294,6 +294,7 @@ public class Sprint3Application {
 					.auth0Id("User01")
 					.username("Unknow15")
 					.rol(Rol.Cajero)
+					.email("tilo@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -303,6 +304,7 @@ public class Sprint3Application {
 					.auth0Id("User02")
 					.username("Unknow88")
 					.rol(Rol.Cliente)
+					.email("Usuario2@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -312,6 +314,7 @@ public class Sprint3Application {
 					.auth0Id("User03")
 					.username("Delivery")
 					.rol(Rol.Delivery)
+					.email("usuario3@hotmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -320,6 +323,7 @@ public class Sprint3Application {
 					.auth0Id("User04")
 					.username("Administrador2")
 					.rol(Rol.Administrador)
+					.email("user0404@outlook.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -362,8 +366,6 @@ public class Sprint3Application {
 					.subtotalCosto(5000)
 					.build();
 
-			/*detallePedidoRepository.save(detallePedido1);
-			detallePedidoRepository.save(detallePedido2);*/
 
 			//CREAR INSTANCIA DE PEDIDO ----------------------------------------------------
 
@@ -459,10 +461,7 @@ public class Sprint3Application {
 					.subtotal(8000)
 					.build();
 
-			/*detalleFacturaRepository.save(detalleFactura1);
-			detalleFacturaRepository.save(detalleFactura2);*/
-
-
+			
 			//CREAR INSTANCIAS FACTURA ----------------------------------------------------
 
 			Factura factura1 = Factura.builder()

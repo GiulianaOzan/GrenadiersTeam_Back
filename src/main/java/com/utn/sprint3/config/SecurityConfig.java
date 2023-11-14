@@ -35,8 +35,7 @@ public class SecurityConfig {
     {
         return http
                 .csrf(csrf ->
-                        csrf
-                                .disable())
+                        csrf.disable())
                 .authorizeHttpRequests(authRequest ->
                                 authRequest
                                         //Autenticacion
@@ -64,10 +63,7 @@ public class SecurityConfig {
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosArticulos/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosgenerales/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/unidadmedidas/**")).permitAll()
-                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).permitAll()
-
-
-
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).permitAll()
 
 
 
