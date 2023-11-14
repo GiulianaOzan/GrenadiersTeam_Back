@@ -1,5 +1,6 @@
 package com.utn.sprint3.entidades;
 
+import com.utn.sprint3.enums.EstadoAB;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
@@ -30,6 +31,10 @@ public class RubroArticulo extends BaseEntidad {
     @Column(name = "fecha_baja")
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private EstadoAB estadoAB;
 
     @ManyToOne
     @JoinColumn(name = "id_rubro_padre")

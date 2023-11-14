@@ -1,5 +1,6 @@
 package com.utn.sprint3.repositorios;
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import java.util.List;
 @Repository
 public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo, Long> {
     List<Articulo_Insumo> findByIdAndDenominacion(Long id, String denominacion);
+
     Page<Articulo_Insumo> findByIdAndDenominacion(Long id, String denominacion, Pageable pageable);
 
     // Consulta JPQL con parámetros indexados
@@ -35,4 +37,18 @@ public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo
             nativeQuery = true
     )
     Page<Articulo_Insumo> searchNativo(@Param("filtro") String filtro, Pageable pageable);
+
+    // consulta para DTO
+    @Query(
+            value = "SELECT ai.id, ai.denominacion AS denominacionArticulo, ra.denominacion AS rubroDenominacion, rg.denominacion AS rubroPadreDenominacion, ra.estadoAB AS rubroEstado " +
+                    "FROM Articulo_Insumo ai " +
+                    "INNER JOIN RubroArticulo ra ON ai.rubroArticulo.id = ra.id " +
+                    "LEFT JOIN RubroArticulo rg ON ra.rubroPadre.id = rg.id ",
+            nativeQuery = true
+    )
+    List<Object[]> obtenerInsumosConRubrosYEstados();
+
+
+
+
 }

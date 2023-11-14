@@ -1,5 +1,6 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.services.ArticuloInsumoServiceImpl;
@@ -38,4 +39,15 @@ public class ArticuloInsumoController extends BaseControllerImpl<Articulo_Insumo
         }
 
     }
+    @GetMapping("/insumosConRubrosYEstados")
+    public ResponseEntity<?> getInsumosConRubrosYEstados() {
+        try {
+            List<DTOInsumoRubro> insumosConRubrosYEstados = servicio.obtenerInsumosConRubrosYEstados();
+            return ResponseEntity.status(HttpStatus.OK).body(insumosConRubrosYEstados);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
+
 }

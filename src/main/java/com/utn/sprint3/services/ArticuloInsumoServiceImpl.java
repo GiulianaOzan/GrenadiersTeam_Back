@@ -1,8 +1,10 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Cliente;
+import com.utn.sprint3.enums.EstadoAB;
 import com.utn.sprint3.repositorios.ArticuloInsumoRepository;
 import com.utn.sprint3.repositorios.BaseRepository;
 import com.utn.sprint3.repositorios.ClienteRepository;
@@ -13,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,5 +46,24 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<Articulo_Insumo, 
         }
     }
 
+    @Override
+    public List<DTOInsumoRubro> obtenerInsumosConRubrosYEstados() throws Exception {
+        try {
+            List<Object[]> resultados = articuloInsumoRepository.obtenerInsumosConRubrosYEstados();
+            List<DTOInsumoRubro> dtos = new ArrayList<>();
 
+            for (Object[] resultado : resultados) {
+                DTOInsumoRubro dto = new DTOInsumoRubro();
+                dto.setInsumoDenominacion((String) resultado[1]);
+                dto.setRubroDenominacion((String) resultado[2]);
+                dto.setRubroPadreDenominacion((String) resultado[3]);
+                dto.setRubroEstado((EstadoAB) resultado[4]);
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

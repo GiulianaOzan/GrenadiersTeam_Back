@@ -1,5 +1,6 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.Cliente;
@@ -13,4 +14,6 @@ public interface ArticuloInsumoService extends BaseService<Articulo_Insumo, Long
     List<Articulo_Insumo> search(String filtro) throws Exception;
 
     Page<Articulo_Insumo> search(String filtro, Pageable pageable) throws Exception;
+
+    List<DTOInsumoRubro> obtenerInsumosConRubrosYEstados() throws Exception;
 }

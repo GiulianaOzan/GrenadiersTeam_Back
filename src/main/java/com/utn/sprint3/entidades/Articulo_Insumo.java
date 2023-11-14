@@ -1,5 +1,7 @@
 package com.utn.sprint3.entidades;
 
+import com.utn.sprint3.enums.EstadoAB;
+import com.utn.sprint3.enums.EstadoPedido;
 import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;

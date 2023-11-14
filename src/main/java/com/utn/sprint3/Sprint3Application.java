@@ -1,10 +1,7 @@
 package com.utn.sprint3;
 
 import com.utn.sprint3.entidades.*;
-import com.utn.sprint3.enums.EstadoPedido;
-import com.utn.sprint3.enums.FormaPago;
-import com.utn.sprint3.enums.Rol;
-import com.utn.sprint3.enums.TipoEnvio;
+import com.utn.sprint3.enums.*;
 import com.utn.sprint3.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -71,6 +68,7 @@ public class Sprint3Application {
 					.denominacion("Insumos")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
+					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
 					.build();
 
@@ -78,6 +76,7 @@ public class Sprint3Application {
 					.denominacion("Insumos hijos")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
+					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
 					//.rubroPadre(rubro0)
 					.build();
@@ -86,6 +85,7 @@ public class Sprint3Application {
 					.denominacion("Insumos hijos hijos")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
+					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
 					//.rubroPadre(rubro0)
 					.build();
