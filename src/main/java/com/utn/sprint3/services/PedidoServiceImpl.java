@@ -1,9 +1,6 @@
 package com.utn.sprint3.services;
 
-import com.utn.sprint3.dtos.DtoArticuloMasVendido;
-import com.utn.sprint3.dtos.DtoMovimientosMonetarios;
-import com.utn.sprint3.dtos.DtoPedidoEnvio;
-import com.utn.sprint3.dtos.DtoPedidoEstado;
+import com.utn.sprint3.dtos.*;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.TipoEnvio;
@@ -16,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -121,5 +120,42 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
+
+   /* @Override
+    public List<DtoPedidoCocina> ObtenerPedidoCocina() throws Exception {
+        try {
+            List<Object[]> entities = pedidoRepository.ObtenerPedidoCocina();
+            List<DtoPedidoCocina> dtos = new ArrayList<>();
+
+            for (Object[] entity : entities) {
+                Long numeroPedido = (Long) entity[0];
+                EstadoPedido estado = EstadoPedido.valueOf((String) entity[1]);
+                int cantidadPedida = (int) entity[2];
+                String denominacionArticulo = (String) entity[3];
+                LocalDateTime fechaPedido = (LocalDateTime) entity[4];
+
+                DtoPedidoCocina dto = new DtoPedidoCocina();
+                dto.setNumeroPedido(numeroPedido);
+                dto.setEstado(estado);
+
+                DtoPedidoCocina.DtoDetallePedido detalle = new DtoPedidoCocina.DtoDetallePedido();
+                detalle.setCantidadPedida(cantidadPedida);
+
+                DtoPedidoCocina.DtoArticulo articulo = new DtoPedidoCocina.DtoArticulo();
+                articulo.setDenominacionArticulo(denominacionArticulo);
+
+                detalle.setArticulo(articulo);
+                dto.setDetalles(Collections.singletonList(detalle));
+
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }*/
+
+
 
 }

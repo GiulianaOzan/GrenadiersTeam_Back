@@ -64,4 +64,13 @@ public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServic
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+
+    @GetMapping("/Empleados")
+    public ResponseEntity<?> obtenerEmpleadosExceptoClientes() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(this.servicio.obtenerEmpleadosExceptoClientes());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
 }

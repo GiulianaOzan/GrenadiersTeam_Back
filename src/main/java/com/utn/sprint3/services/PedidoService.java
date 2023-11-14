@@ -1,9 +1,6 @@
 package com.utn.sprint3.services;
 
-import com.utn.sprint3.dtos.DtoArticuloMasVendido;
-import com.utn.sprint3.dtos.DtoMovimientosMonetarios;
-import com.utn.sprint3.dtos.DtoPedidoEnvio;
-import com.utn.sprint3.dtos.DtoPedidoEstado;
+import com.utn.sprint3.dtos.*;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.TipoEnvio;
@@ -30,6 +27,8 @@ public interface PedidoService extends BaseService<Pedido, Long> {
     List<DtoPedidoEstado> findBy();
 
     List<DtoMovimientosMonetarios> calcularTotales(String fecha1, String fecha2) throws Exception;
+    /*List<DtoPedidoCocina> ObtenerPedidoCocina() throws Exception;
+*/
 
 
 

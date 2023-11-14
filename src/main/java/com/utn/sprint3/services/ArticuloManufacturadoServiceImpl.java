@@ -49,6 +49,7 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
 
 
     @Override
+    @Transactional
     public List<DtoArticuloMasVendido> filtradoPorProductoVendidoPorFecha(String fecha1, String fecha2) throws Exception {
         try {
             List<Object[]> entities = articuloManufacturadoRepository.filtradoPorProductoVendidoPorFecha(fecha1, fecha2);

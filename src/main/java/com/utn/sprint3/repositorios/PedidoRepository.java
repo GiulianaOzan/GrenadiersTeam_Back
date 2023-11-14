@@ -105,6 +105,27 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
             "    p.fecha_pedido BETWEEN ?1 AND ?2", nativeQuery = true)
     List<Object[]> calcularTotales(@Param("fecha1") String fecha1, @Param("fecha2") String fecha2);
 
+/*
+
+    @Query(value = "SELECT DISTINCT\n" +
+            "    p.id AS numeroPedido,\n" +
+            "    p.estado AS estado,\n" +
+            "    d.cantidad AS cantidadPedida,\n" +
+            "    am.denominacion AS denominacionArticulo,\n" +
+            "    p.fecha_Pedido AS fecha_Pedido\n" +
+            "FROM\n" +
+            "    Pedido p\n" +
+            "JOIN\n" +
+            "    Detalle_Pedido d ON p.id = d.id_pedido\n" +
+            "JOIN\n" +
+            "    Articulo_Manufacturado am ON d.id_articulo_manufacturado = am.id\n" +
+            "WHERE\n" +
+            "    p.estado = 'Iniciado'" +
+            "ORDER BY\n" +
+            "    p.fecha_Pedido ASC", nativeQuery = true)
+    List<Object[]> ObtenerPedidoCocina();
+
+*/
 
 
 }

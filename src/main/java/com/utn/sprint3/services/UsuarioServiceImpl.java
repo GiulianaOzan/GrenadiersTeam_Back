@@ -1,22 +1,17 @@
 package com.utn.sprint3.services;
 
-import com.utn.sprint3.entidades.Pedido;
+import com.utn.sprint3.dtos.DtoEmpleados;
 import com.utn.sprint3.entidades.Usuario;
-import com.utn.sprint3.enums.EstadoPedido;
 import com.utn.sprint3.enums.Rol;
-import com.utn.sprint3.enums.TipoEnvio;
 import com.utn.sprint3.repositorios.BaseRepository;
 import com.utn.sprint3.repositorios.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -75,4 +70,52 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
             throw new Exception(e.getMessage());
         }
     }
+
+/*    public List<DtoEmpleados> obtenerEmpleadosExceptoClientes() {
+        try {
+            Rol clienteRol = Rol.Cliente;
+            List<Object[]> entities = usuarioRepositorio.findAllExceptClientes(clienteRol.name());
+            List<DtoEmpleados> dtos = new ArrayList<>();
+
+            for (Object[] entity : entities) {
+                DtoEmpleados dto = new DtoEmpleados(
+                        (Long) entity[0],
+                        (String) entity[1],
+                        (Rol) entity[2], // Asegúrate de que la posición y el tipo sean correctos
+                        (String) entity[3]
+                );
+
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            // Manejar la excepción según tus necesidades
+            e.printStackTrace(); // Imprimir la excepción por ahora, puedes cambiar esto según tus requerimientos.
+            return new ArrayList<>(); // Otra opción sería lanzar la excepción o devolver una lista vacía.
+        }*/
+
+    @Override
+    public List<DtoEmpleados> obtenerEmpleadosExceptoClientes() throws Exception {
+        try {
+            List<Object[]> entities = usuarioRepository.obtenerEmpleadosExceptoClientes();
+            List<DtoEmpleados> dtos = new ArrayList<>();
+
+            for (Object[] entity : entities) {
+                DtoEmpleados dto = new DtoEmpleados(
+                        (Long) entity[0],
+                        (String) entity[1],
+                        Rol.valueOf((String) entity[2]), // Convertir a enumeración
+                        (String) entity[3]
+                );
+
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
 }
