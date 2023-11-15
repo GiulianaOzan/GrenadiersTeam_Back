@@ -35,8 +35,7 @@ public class SecurityConfig {
     {
         return http
                 .csrf(csrf ->
-                        csrf
-                                .disable())
+                        csrf.disable())
                 .authorizeHttpRequests(authRequest ->
                                 authRequest
                                         //Autenticacion
@@ -51,6 +50,7 @@ public class SecurityConfig {
 
 
                                         //Descomentar para poder usar las request en postman de forma libre
+<<<<<<< HEAD
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).permitAll()
@@ -68,6 +68,22 @@ public class SecurityConfig {
 
 
 
+=======
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumo/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesArticulosManufacturados/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/detallesfacturas/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/detallespedidos/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/domicilios/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/facturas/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/mercadopagodatos/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosArticulos/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosgenerales/**")).permitAll()
+                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/unidadmedidas/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).permitAll()
+>>>>>>> e14ae20f289c1dc5269cbb278e4cfd55b087878f
 
 
 

@@ -53,5 +53,14 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
         }
     }
 
+    @GetMapping("/manufacturadosConRubrosYEstados")
+    public ResponseEntity<?> obtenerManufacturadosConRubroYEstado() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(this.servicio.obtenerManufacturadosConRubroYEstado());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
 
 }

@@ -62,9 +62,9 @@ public class Usuario extends BaseEntidad implements UserDetails {
         return List.of(new SimpleGrantedAuthority(rol.name()));
     }
 
-
+ //metodos que por default los genera como private pero deben ser public para poder accederlos
     @Override
-    public boolean isAccountNonExpired() {
+   public boolean isAccountNonExpired() {
         return true;
 
     }

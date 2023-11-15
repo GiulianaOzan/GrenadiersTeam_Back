@@ -20,6 +20,7 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JwtService {
 
+    //valor secretKEY  valor ramdom que nosotros generamos
     private static final String SECRET_KEY="586E3272357538782F413F4428472B4B6250655368566B597033733676397924";
 
     public String getToken(UserDetails user) {
@@ -48,7 +49,7 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username=getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername())&& !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
     private Claims getAllClaims(String token)

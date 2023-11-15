@@ -73,6 +73,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
+
 					.build();
 
 			RubroArticulo rubro1 = RubroArticulo.builder()
@@ -81,7 +82,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					//.rubroPadre(rubro0)
+					.rubroPadre(rubro0)
 					.build();
 
 			RubroArticulo rubro2 = RubroArticulo.builder()
@@ -90,7 +91,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					//.rubroPadre(rubro0)
+					.rubroPadre(rubro0)
 					.build();
 
 			rubroArticuloRepository.save(rubro0);
@@ -183,23 +184,42 @@ public class Sprint3Application {
 					.build();
 
 
+			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
+					.denominacion("Queso Muzzarella")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(50)
+					.urlImagen("queso.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
 
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
+<<<<<<< HEAD
 			articuloInsumo1.setRubroArticulo(rubro0);
 			articuloInsumo2.setRubroArticulo(rubro0);
 			articuloInsumo3.setRubroArticulo(rubro0);
 			articuloInsumo4.setRubroArticulo(rubro0);
 			articuloInsumo5.setRubroArticulo(rubro0);
 			articuloInsumo6.setRubroArticulo(rubro0);
+=======
+			articuloInsumo1.setRubroArticulo(rubro1);
+			articuloInsumo2.setRubroArticulo(rubro1);
+			articuloInsumo3.setRubroArticulo(rubro1);
+>>>>>>> e14ae20f289c1dc5269cbb278e4cfd55b087878f
 
 			articuloInsumoRepository.save(articuloInsumo1);
 			articuloInsumoRepository.save(articuloInsumo2);
 			articuloInsumoRepository.save(articuloInsumo3);
+<<<<<<< HEAD
 			articuloInsumoRepository.save(articuloInsumo4);
 			articuloInsumoRepository.save(articuloInsumo5);
 			articuloInsumoRepository.save(articuloInsumo6);
+=======
+>>>>>>> e14ae20f289c1dc5269cbb278e4cfd55b087878f
 
 			// Vinculamos la unidad medida al articulo -------------------------------------
 
@@ -213,9 +233,11 @@ public class Sprint3Application {
 
 			RubroGeneral rubroGeneral1 = RubroGeneral.builder()
 					.denominacion("Manufacturados")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 			RubroGeneral rubroGeneral2 = RubroGeneral.builder()
 					.denominacion("Insumos")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 
 			rubroGeneralRepository.save(rubroGeneral1);
@@ -343,6 +365,7 @@ public class Sprint3Application {
 					.auth0Id("User01")
 					.username("Unknow15")
 					.rol(Rol.Cajero)
+					.email("tilo@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -352,6 +375,7 @@ public class Sprint3Application {
 					.auth0Id("User02")
 					.username("Unknow88")
 					.rol(Rol.Cliente)
+					.email("Usuario2@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -361,6 +385,7 @@ public class Sprint3Application {
 					.auth0Id("User03")
 					.username("Delivery")
 					.rol(Rol.Delivery)
+					.email("usuario3@hotmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -369,6 +394,7 @@ public class Sprint3Application {
 					.auth0Id("User04")
 					.username("Administrador2")
 					.rol(Rol.Administrador)
+					.email("user0404@outlook.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -411,8 +437,6 @@ public class Sprint3Application {
 					.subtotalCosto(5000)
 					.build();
 
-			/*detallePedidoRepository.save(detallePedido1);
-			detallePedidoRepository.save(detallePedido2);*/
 
 			//CREAR INSTANCIA DE PEDIDO ----------------------------------------------------
 
@@ -508,10 +532,7 @@ public class Sprint3Application {
 					.subtotal(8000)
 					.build();
 
-			/*detalleFacturaRepository.save(detalleFactura1);
-			detalleFacturaRepository.save(detalleFactura2);*/
-
-
+			
 			//CREAR INSTANCIAS FACTURA ----------------------------------------------------
 
 			Factura factura1 = Factura.builder()

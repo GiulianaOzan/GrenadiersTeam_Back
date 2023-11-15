@@ -1,8 +1,11 @@
 package com.utn.sprint3.services;
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
+import com.utn.sprint3.dtos.DTOManufacturadoRubro;
 import com.utn.sprint3.dtos.DtoArticuloMasVendido;
 import com.utn.sprint3.entidades.Articulo_Insumo;
 import com.utn.sprint3.entidades.ArticuloManufacturado;
+import com.utn.sprint3.enums.EstadoAB;
 import com.utn.sprint3.repositorios.ArticuloManufacturadoRepository;
 import com.utn.sprint3.repositorios.BaseRepository;
 import jakarta.transaction.Transactional;
@@ -65,6 +68,28 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
                 dtos.add(dto);
             }
 
+            return dtos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<DTOManufacturadoRubro> obtenerManufacturadosConRubroYEstado() throws Exception {
+        try {
+            List<Object[]> resultados = articuloManufacturadoRepository.obtenerManufacturadosConRubroYEstado();
+            List<DTOManufacturadoRubro> dtos = new ArrayList<>();
+
+            for (Object[] resultado : resultados) {
+                DTOManufacturadoRubro dto = new DTOManufacturadoRubro(
+                        (Long) resultado[0],
+                        (String) resultado[1],
+                        (String) resultado[2],
+                        EstadoAB.valueOf((String) resultado[3])
+                );
+
+                dtos.add(dto);
+            }
             return dtos;
         } catch (Exception e) {
             throw new Exception(e.getMessage());

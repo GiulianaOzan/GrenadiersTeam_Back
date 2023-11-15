@@ -23,8 +23,6 @@ public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
     List<Usuario> findByRol(Rol rol);
     Page<Usuario> findByRol(Rol rol, Pageable pageable);
 
-
-
     //anotacion jpql parmetros indexados
     @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:username%")
     List<Usuario> search(String username);
