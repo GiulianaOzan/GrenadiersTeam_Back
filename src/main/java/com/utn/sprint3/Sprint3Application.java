@@ -177,9 +177,11 @@ public class Sprint3Application {
 
 			RubroGeneral rubroGeneral1 = RubroGeneral.builder()
 					.denominacion("Manufacturados")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 			RubroGeneral rubroGeneral2 = RubroGeneral.builder()
 					.denominacion("Insumos")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 
 			rubroGeneralRepository.save(rubroGeneral1);

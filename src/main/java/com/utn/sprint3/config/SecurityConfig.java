@@ -51,9 +51,9 @@ public class SecurityConfig {
 
                                         //Descomentar para poder usar las request en postman de forma libre
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumo/**")).permitAll()
-                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).permitAll()
-                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/detallesArticulosManufacturados/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesArticulosManufacturados/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/detallesfacturas/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/detallespedidos/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/domicilios/**")).permitAll()
@@ -61,7 +61,7 @@ public class SecurityConfig {
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/mercadopagodatos/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosArticulos/**")).permitAll()
-                                        //.requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosgenerales/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/rubrosgenerales/**")).permitAll()
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/unidadmedidas/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).permitAll()
 

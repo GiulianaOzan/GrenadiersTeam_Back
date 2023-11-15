@@ -1,6 +1,8 @@
 package com.utn.sprint3.services;
 
 
+import com.utn.sprint3.dtos.DTOInsumoRubro;
+import com.utn.sprint3.dtos.DTOManufacturadoRubro;
 import com.utn.sprint3.dtos.DtoArticuloMasVendido;
 import com.utn.sprint3.entidades.ArticuloManufacturado;
 import org.springframework.data.domain.Page;
@@ -16,5 +18,7 @@ public interface ArticuloManufacturadoService extends BaseService<ArticuloManufa
     Page<ArticuloManufacturado> search(String filtro, Pageable pageable) throws Exception;
 
     List<DtoArticuloMasVendido> filtradoPorProductoVendidoPorFecha(String fecha1, String fecha2) throws Exception;
+
+    List<DTOManufacturadoRubro> obtenerManufacturadosConRubroYEstado() throws Exception;
 
 }
