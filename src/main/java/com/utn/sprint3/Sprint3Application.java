@@ -184,42 +184,26 @@ public class Sprint3Application {
 					.build();
 
 
-			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
-					.denominacion("Queso Muzzarella")
-					.precioCompra(300)
-					.stockMinimo(5)
-					.stockActual(50)
-					.urlImagen("queso.jpg")
-					.fechaAlta(fecha)
-					.fechaBaja(fecha)
-					.fechaModificacion(fecha)
-					.build();
 
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
-<<<<<<< HEAD
+
 			articuloInsumo1.setRubroArticulo(rubro0);
 			articuloInsumo2.setRubroArticulo(rubro0);
 			articuloInsumo3.setRubroArticulo(rubro0);
 			articuloInsumo4.setRubroArticulo(rubro0);
 			articuloInsumo5.setRubroArticulo(rubro0);
 			articuloInsumo6.setRubroArticulo(rubro0);
-=======
-			articuloInsumo1.setRubroArticulo(rubro1);
-			articuloInsumo2.setRubroArticulo(rubro1);
-			articuloInsumo3.setRubroArticulo(rubro1);
->>>>>>> e14ae20f289c1dc5269cbb278e4cfd55b087878f
+
 
 			articuloInsumoRepository.save(articuloInsumo1);
 			articuloInsumoRepository.save(articuloInsumo2);
 			articuloInsumoRepository.save(articuloInsumo3);
-<<<<<<< HEAD
 			articuloInsumoRepository.save(articuloInsumo4);
 			articuloInsumoRepository.save(articuloInsumo5);
 			articuloInsumoRepository.save(articuloInsumo6);
-=======
->>>>>>> e14ae20f289c1dc5269cbb278e4cfd55b087878f
+
 
 			// Vinculamos la unidad medida al articulo -------------------------------------
 
