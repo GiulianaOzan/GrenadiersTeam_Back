@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchConnectionDetails;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 @SpringBootApplication
 public class Sprint3Application {
@@ -20,6 +23,8 @@ public class Sprint3Application {
 	RubroArticuloRepository rubroArticuloRepository;
 	@Autowired
 	ClienteRepository clienteRepository;
+	@Autowired
+	EmpleadoRepository empleadoRepository;
 	@Autowired
 	ArticuloManufacturadoRepository articuloManufacturadoRepository;
 	@Autowired
@@ -62,8 +67,12 @@ public class Sprint3Application {
 			//configuracion fecha
 			SimpleDateFormat formatoFecha = new SimpleDateFormat ("yyyy-MM-dd");
 			String fechaString = "2023-09-09";
+			String fechaString1 = "2023-11-11";
+
 			// Parsear la cadena en un objeto Date
 			Date fecha = formatoFecha.parse(fechaString);
+			Date fecha1 = formatoFecha.parse(fechaString1);
+
 
 			//CREAR INSTANCIA DE RUBRO ----------------------------------------------------
 
@@ -184,17 +193,30 @@ public class Sprint3Application {
 					.build();
 
 
+			Articulo_Insumo articuloInsumo7 = Articulo_Insumo.builder()
+					.denominacion("Queso Muzzarella")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(50)
+					.urlImagen("queso.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
 
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
+			articuloInsumo1.setRubroArticulo(rubro1);
+			articuloInsumo2.setRubroArticulo(rubro1);
+			articuloInsumo3.setRubroArticulo(rubro1);
 
-			articuloInsumo1.setRubroArticulo(rubro0);
-			articuloInsumo2.setRubroArticulo(rubro0);
-			articuloInsumo3.setRubroArticulo(rubro0);
-			articuloInsumo4.setRubroArticulo(rubro0);
-			articuloInsumo5.setRubroArticulo(rubro0);
-			articuloInsumo6.setRubroArticulo(rubro0);
+			articuloInsumo1.setRubroArticulo(rubro1);
+			articuloInsumo2.setRubroArticulo(rubro1);
+			articuloInsumo3.setRubroArticulo(rubro1);
+			articuloInsumo4.setRubroArticulo(rubro2);
+			articuloInsumo5.setRubroArticulo(rubro2);
+			articuloInsumo6.setRubroArticulo(rubro2);
 
 
 			articuloInsumoRepository.save(articuloInsumo1);
@@ -313,6 +335,53 @@ public class Sprint3Application {
 			clienteRepository.save(cliente1);
 			clienteRepository.save(cliente2);
 
+			//CREO EMPLEADOS ----------------------------------------------------------------
+
+
+			Empleado empleado1 = Empleado.builder()
+					.nombre("Martin")
+					.apellido("Lopez")
+					.email("Delivery1@gmail.com")
+					.telefono(261458755)
+					.fechaAlta(fecha)
+					.fechaBaja(null)
+					.fechaModificacion(fecha1)
+					.build();
+
+			Empleado empleado2 = Empleado.builder()
+					.nombre("Lucas")
+					.apellido("Gomez")
+					.email("Cocinero1@gmail.com")
+					.telefono(26144774)
+					.fechaAlta(fecha1)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			Empleado empleado3 = Empleado.builder()
+					.nombre("Martina")
+					.apellido("Luna")
+					.email("Cajera1@gmail.com")
+					.telefono(261877369)
+					.fechaAlta(fecha)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			Empleado empleado4 = Empleado.builder()
+					.nombre("Tomas")
+					.apellido("Gimenez")
+					.email("Administrador1@gmail.com")
+					.telefono(321144585)
+					.fechaAlta(fecha1)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			empleadoRepository.save(empleado1);
+			empleadoRepository.save(empleado2);
+			empleadoRepository.save(empleado3);
+			empleadoRepository.save(empleado4);
 
 			//CREO DOMICILIO ---------------------------------------------------------------
 
@@ -340,15 +409,68 @@ public class Sprint3Application {
 					.fechaModificacion(fecha)
 					.build();
 
+			Domicilio domicilio3 = Domicilio.builder()
+					.calle("Patricias Mendocinas")
+					.codigoPostal(7744)
+					.localidad("Capital")
+					.pisoDpto(5)
+					.numero(788)
+					.numeroDpto(7)
+					.fechaAlta(fecha)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			Domicilio domicilio4 = Domicilio.builder()
+					.calle("Renato Della Santa")
+					.codigoPostal(9887)
+					.localidad("Villa Tulumaya")
+					.pisoDpto(7)
+					.numero(26)
+					.numeroDpto(9)
+					.fechaAlta(fecha)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			Domicilio domicilio5 = Domicilio.builder()
+					.calle("Gabrielli")
+					.codigoPostal(8744)
+					.localidad("Maipu")
+					.pisoDpto(5)
+					.numero(55)
+					.numeroDpto(5)
+					.fechaAlta(fecha1)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
+			Domicilio domicilio6 = Domicilio.builder()
+					.calle("Gral Alvear")
+					.codigoPostal(5447)
+					.localidad("Lujan")
+					.pisoDpto(7)
+					.numero(26)
+					.numeroDpto(9)
+					.fechaAlta(fecha1)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
 			domicilioRepository.save(domicilio1);
 			domicilioRepository.save(domicilio2);
+			domicilioRepository.save(domicilio3);
+			domicilioRepository.save(domicilio4);
+			domicilioRepository.save(domicilio5);
+			domicilioRepository.save(domicilio6);
 
 			//CREO USUARIO -----------------------------------------------------------------
 
 			Usuario usuario1 = Usuario.builder()
 					.auth0Id("User01")
-					.username("Unknow15")
+					.username("Cajero1")
 					.rol(Rol.Cajero)
+//					.contraseña("Cajero1")
 					.email("tilo@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
@@ -360,6 +482,9 @@ public class Sprint3Application {
 					.auth0Id("User02")
 					.username("Unknow88")
 					.rol(Rol.Cliente)
+//					.contraseña("Cliente1")
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.email("Usuario2@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
@@ -369,27 +494,61 @@ public class Sprint3Application {
 
 			Usuario usuario3 = Usuario.builder()
 					.auth0Id("User03")
+//					.username("Unknow88")
+					.rol(Rol.Cliente)
+//					.contraseña("Cliente2")
 					.username("Delivery")
 					.rol(Rol.Delivery)
 					.email("usuario3@hotmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
+
 			Usuario usuario4 = Usuario.builder()
 					.auth0Id("User04")
-					.username("Administrador2")
+					.username("Delivery1")
+					.rol(Rol.Delivery)
+//					.contraseña("Delivery1")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
+					.build();
+			Usuario usuario5 = Usuario.builder()
+					.auth0Id("User05")
+					.username("Administrador1")
 					.rol(Rol.Administrador)
+//					.contraseña("Administrador1")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
+					.build();
+
+			Usuario usuario6 = Usuario.builder()
+					.auth0Id("User06")
+					.username("Cocinero1")
+					.rol(Rol.Cocinero)
+//					.contraseña("Cocinero1")
 					.email("user0404@outlook.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
 
 			usuarioRepository.save(usuario1);
 			usuarioRepository.save(usuario2);
 			usuarioRepository.save(usuario3);
 			usuarioRepository.save(usuario4);
+			usuarioRepository.save(usuario5);
+			usuarioRepository.save(usuario6);
 
 
 
@@ -401,14 +560,37 @@ public class Sprint3Application {
 			clienteRepository.save(cliente1);
 			clienteRepository.save(cliente2);
 
+			//VINCULAR DOMICILIO CON Empleado -----------------------------------------------
+
+			empleado1.setDomicilio(domicilio3);
+			empleado2.setDomicilio(domicilio4);
+			empleado3.setDomicilio(domicilio5);
+			empleado4.setDomicilio(domicilio6);
+
+			empleadoRepository.save(empleado1);
+			empleadoRepository.save(empleado2);
+			empleadoRepository.save(empleado3);
+			empleadoRepository.save(empleado4);
+
 			//VINCULAR CLIENTE CON USUARIO -------------------------------------------------
 
 			cliente1.setUsuario(usuario2);
-			cliente2.setUsuario(usuario1);
+			cliente2.setUsuario(usuario3);
 
 			clienteRepository.save(cliente1);
 			clienteRepository.save(cliente2);
 
+		//VINCULAR EMPLEADO CON USUARIO -------------------------------------------------
+
+			empleado1.setUsuario(usuario4);
+			empleado2.setUsuario(usuario6);
+			empleado3.setUsuario(usuario1);
+			empleado4.setUsuario(usuario5);
+
+			empleadoRepository.save(empleado1);
+			empleadoRepository.save(empleado2);
+			empleadoRepository.save(empleado3);
+			empleadoRepository.save(empleado4);
 
 			//CREAR ISNTANCIA DETALLE PEDIDO -----------------------------------------------
 

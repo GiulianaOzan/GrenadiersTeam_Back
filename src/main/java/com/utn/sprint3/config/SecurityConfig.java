@@ -50,9 +50,17 @@ public class SecurityConfig {
 
 
                                         //Descomentar para poder usar las request en postman de forma libre
+<<<<<<< HEAD
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados")).hasAuthority("Cliente")
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes")).hasAuthority("Cajero")
+=======
+
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/empleados/**")).permitAll()
+>>>>>>> 7de0abc989282d8927c74d5bedb325fc2be00435
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesArticulosManufacturados/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesfacturas/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallespedidos/**")).permitAll()
@@ -68,8 +76,11 @@ public class SecurityConfig {
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).permitAll()
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7de0abc989282d8927c74d5bedb325fc2be00435
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) //sino no levanta H2?? duda
                 .sessionManagement(sessionManager ->

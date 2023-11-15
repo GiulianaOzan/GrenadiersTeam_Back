@@ -63,16 +63,30 @@ public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
     )
     Page<Usuario> searchNativo(@Param("rol") Rol rol, Pageable pageable);
 
-    @Query(value = "SELECT\n" +
-            "    u.id AS id_Empleado,\n" +
-            "    u.username As username_Empleado,\n" +
-            "    u.rol AS rol,\n" +
-            "    u.email AS email_Empleado\n" +
-            "FROM\n" +
-            "    Usuario u\n" +
-            "WHERE\n" +
-            "    u.rol <> 'Cliente'", nativeQuery = true)
+    @Query(value =
+            "SELECT " +
+                    "    u.id AS id, " +
+                    "    u.auth0_id AS id_Empleado, " +
+                    "    u.username AS username_Empleado, " +
+                    "    u.rol AS rol_Empleado, " +
+                    "    e.email AS email_Empleado, " +
+                    "    e.nombre AS nombre_Empleado, " +
+                    "    e.apellido AS apellido_Empleado, " +
+                    "    d.localidad AS localidad_Empleado, " +
+                    "    d.calle AS calle_Empleado, " +
+                    "    d.numero AS nro_direccion_Empleado, " +
+                    "    u.password AS contraseña_Empleado, " +
+                    "    e.telefono AS telefono_Empleado " +
+                    "FROM " +
+                    "    Usuario u " +
+                    "INNER JOIN " +
+                    "    Empleado e ON u.id = e.id_usuario " +
+                    "INNER JOIN " +
+                    "    Domicilio d ON e.id_domicilio = d.id " +
+                    "WHERE " +
+                    "    u.rol <> 'Cliente'", nativeQuery = true)
     List<Object[]> obtenerEmpleadosExceptoClientes();
+
 
 
 }

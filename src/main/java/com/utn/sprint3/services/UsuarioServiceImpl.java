@@ -103,10 +103,18 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implement
 
             for (Object[] entity : entities) {
                 DtoEmpleados dto = new DtoEmpleados(
-                        (Long) entity[0],
+                        (long) entity[0],
                         (String) entity[1],
-                        Rol.valueOf((String) entity[2]), // Convertir a enumeración
-                        (String) entity[3]
+                        (String) entity[2],
+                        Rol.valueOf((String) entity[3]), // Convertir a enumeración
+                        (String) entity[4],
+                        (String) entity[5],
+                        (String) entity[6],
+                        (String) entity[7],
+                        (String) entity[8],
+                        (int) entity[9],
+                        (String) entity[10],
+                        (long) entity[11]
                 );
 
                 dtos.add(dto);
