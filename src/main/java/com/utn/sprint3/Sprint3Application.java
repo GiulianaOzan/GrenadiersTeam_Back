@@ -211,12 +211,12 @@ public class Sprint3Application {
 			articuloInsumo2.setRubroArticulo(rubro1);
 			articuloInsumo3.setRubroArticulo(rubro1);
 
-			articuloInsumo1.setRubroArticulo(rubro0);
-			articuloInsumo2.setRubroArticulo(rubro0);
-			articuloInsumo3.setRubroArticulo(rubro0);
-			articuloInsumo4.setRubroArticulo(rubro0);
-			articuloInsumo5.setRubroArticulo(rubro0);
-			articuloInsumo6.setRubroArticulo(rubro0);
+			articuloInsumo1.setRubroArticulo(rubro1);
+			articuloInsumo2.setRubroArticulo(rubro1);
+			articuloInsumo3.setRubroArticulo(rubro1);
+			articuloInsumo4.setRubroArticulo(rubro2);
+			articuloInsumo5.setRubroArticulo(rubro2);
+			articuloInsumo6.setRubroArticulo(rubro2);
 
 
 			articuloInsumoRepository.save(articuloInsumo1);

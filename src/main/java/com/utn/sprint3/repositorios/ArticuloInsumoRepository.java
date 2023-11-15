@@ -41,7 +41,7 @@ public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo
     // consulta para DTO
     @Query(
             value = "SELECT \n" +
-                    "ai.ID AS idInsumo,"+
+                    "ai.ID AS id,"+
                     "ai.DENOMINACION AS denominacionArticulo,\n"+
                     " ra.DENOMINACION AS rubroDenominacion, \n"+
                     " rg.DENOMINACION AS rubroPadreDenominacion,\n"+

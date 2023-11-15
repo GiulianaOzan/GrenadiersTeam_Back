@@ -10,7 +10,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class DTOInsumoRubro {
-    private Long idArticulo;
+    private Long id;
     private String insumoDenominacion;
     private String rubroDenominacion;
     private String rubroPadreDenominacion;
