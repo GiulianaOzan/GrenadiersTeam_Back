@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,6 +46,8 @@ public class Sprint3Application {
 	UnidadMedidaRepository unidadMedidaRepository;
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 
@@ -145,6 +148,47 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
 					.build();
+			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
+					.denominacion("Mozzarella")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(45)
+					.urlImagen("mozza.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
+			Articulo_Insumo articuloInsumo4 = Articulo_Insumo.builder()
+					.denominacion("Queso Crema")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(5)
+					.urlImagen("QCrema.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
+			Articulo_Insumo articuloInsumo5 = Articulo_Insumo.builder()
+					.denominacion("Queso Roquefort")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(1)
+					.urlImagen("QRoq.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(fecha)
+					.fechaModificacion(fecha)
+					.build();
+			Articulo_Insumo articuloInsumo6 = Articulo_Insumo.builder()
+					.denominacion("Pan")
+					.precioCompra(300)
+					.stockMinimo(5)
+					.stockActual(150)
+					.urlImagen("Pan.jpg")
+					.fechaAlta(fecha)
+					.fechaBaja(null)
+					.fechaModificacion(fecha)
+					.build();
+
 
 			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
 					.denominacion("Queso Muzzarella")
@@ -160,13 +204,31 @@ public class Sprint3Application {
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
+<<<<<<< HEAD
 			articuloInsumo1.setRubroArticulo(rubro1);
 			articuloInsumo2.setRubroArticulo(rubro1);
 			articuloInsumo3.setRubroArticulo(rubro1);
+=======
+
+			articuloInsumo1.setRubroArticulo(rubro0);
+			articuloInsumo2.setRubroArticulo(rubro0);
+			articuloInsumo3.setRubroArticulo(rubro0);
+			articuloInsumo4.setRubroArticulo(rubro0);
+			articuloInsumo5.setRubroArticulo(rubro0);
+			articuloInsumo6.setRubroArticulo(rubro0);
+
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 
 			articuloInsumoRepository.save(articuloInsumo1);
 			articuloInsumoRepository.save(articuloInsumo2);
 			articuloInsumoRepository.save(articuloInsumo3);
+<<<<<<< HEAD
+=======
+			articuloInsumoRepository.save(articuloInsumo4);
+			articuloInsumoRepository.save(articuloInsumo5);
+			articuloInsumoRepository.save(articuloInsumo6);
+
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 
 			// Vinculamos la unidad medida al articulo -------------------------------------
 
@@ -180,9 +242,11 @@ public class Sprint3Application {
 
 			RubroGeneral rubroGeneral1 = RubroGeneral.builder()
 					.denominacion("Manufacturados")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 			RubroGeneral rubroGeneral2 = RubroGeneral.builder()
 					.denominacion("Insumos")
+					.estadoAB(EstadoAB.Alta)
 					.build();
 
 			rubroGeneralRepository.save(rubroGeneral1);
@@ -409,16 +473,25 @@ public class Sprint3Application {
 					.auth0Id("User01")
 					.username("Cajero1")
 					.rol(Rol.Cajero)
+<<<<<<< HEAD
 					.contraseña("Cajero1")
+=======
+					.email("tilo@gmail.com")
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
 					.build();
 			Usuario usuario2 = Usuario.builder()
 					.auth0Id("User02")
 					.username("Unknow88")
 					.rol(Rol.Cliente)
+<<<<<<< HEAD
 					.contraseña("Cliente1")
+=======
+					.email("Usuario2@gmail.com")
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -426,9 +499,15 @@ public class Sprint3Application {
 
 			Usuario usuario3 = Usuario.builder()
 					.auth0Id("User03")
+<<<<<<< HEAD
 					.username("Unknow88")
 					.rol(Rol.Cliente)
 					.contraseña("Cliente2")
+=======
+					.username("Delivery")
+					.rol(Rol.Delivery)
+					.email("usuario3@hotmail.com")
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -447,6 +526,7 @@ public class Sprint3Application {
 					.auth0Id("User05")
 					.username("Administrador1")
 					.rol(Rol.Administrador)
+<<<<<<< HEAD
 					.contraseña("Administrador1")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
@@ -458,6 +538,9 @@ public class Sprint3Application {
 					.username("Cocinero1")
 					.rol(Rol.Cocinero)
 					.contraseña("Cocinero1")
+=======
+					.email("user0404@outlook.com")
+>>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -525,8 +608,6 @@ public class Sprint3Application {
 					.subtotalCosto(5000)
 					.build();
 
-			/*detallePedidoRepository.save(detallePedido1);
-			detallePedidoRepository.save(detallePedido2);*/
 
 			//CREAR INSTANCIA DE PEDIDO ----------------------------------------------------
 
@@ -622,10 +703,7 @@ public class Sprint3Application {
 					.subtotal(8000)
 					.build();
 
-			/*detalleFacturaRepository.save(detalleFactura1);
-			detalleFacturaRepository.save(detalleFactura2);*/
-
-
+			
 			//CREAR INSTANCIAS FACTURA ----------------------------------------------------
 
 			Factura factura1 = Factura.builder()

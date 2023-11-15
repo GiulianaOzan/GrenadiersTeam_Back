@@ -83,4 +83,17 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     List<Object[]> filtradoPorProductoVendidoPorFecha(@Param("fecha1") String fecha1, @Param("fecha2") String fecha2);
 
 
+    // consulta para DTO
+
+    @Query(value = "SELECT \n" +
+            "am.ID AS idArticulo, " +
+            "am.DENOMINACION AS denominacionArticulo,\n" +
+            "rg.DENOMINACION AS rubroDenominacion,\n" +
+            "rg.ESTADOAB AS rubroEstado \n" +
+            "FROM ARTICULO_MANUFACTURADO am \n" +
+            "LEFT JOIN RUBRO_ENTIDAD rg ON am.ID_RUBRO_GENERAL = rg.ID ",
+            nativeQuery = true
+    )
+    List<Object[]> obtenerManufacturadosConRubroYEstado();
+
 }
