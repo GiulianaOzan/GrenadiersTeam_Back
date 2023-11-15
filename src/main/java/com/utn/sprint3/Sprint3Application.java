@@ -355,6 +355,7 @@ public class Sprint3Application {
 					.fechaModificacion(fecha)
 					.password(passwordEncoder.encode("desarrollo"))
 					.build();
+
 			Usuario usuario2 = Usuario.builder()
 					.auth0Id("User02")
 					.username("Unknow88")
@@ -363,6 +364,7 @@ public class Sprint3Application {
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("user123"))
 					.build();
 
 			Usuario usuario3 = Usuario.builder()
