@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchConnectionDetails;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 @SpringBootApplication
 public class Sprint3Application {
@@ -190,7 +193,7 @@ public class Sprint3Application {
 					.build();
 
 
-			Articulo_Insumo articuloInsumo3 = Articulo_Insumo.builder()
+			Articulo_Insumo articuloInsumo7 = Articulo_Insumo.builder()
 					.denominacion("Queso Muzzarella")
 					.precioCompra(300)
 					.stockMinimo(5)
@@ -204,11 +207,9 @@ public class Sprint3Application {
 
 			//Vinculamos el rubro a los articulos ------------------------------------------
 
-<<<<<<< HEAD
 			articuloInsumo1.setRubroArticulo(rubro1);
 			articuloInsumo2.setRubroArticulo(rubro1);
 			articuloInsumo3.setRubroArticulo(rubro1);
-=======
 
 			articuloInsumo1.setRubroArticulo(rubro0);
 			articuloInsumo2.setRubroArticulo(rubro0);
@@ -217,18 +218,14 @@ public class Sprint3Application {
 			articuloInsumo5.setRubroArticulo(rubro0);
 			articuloInsumo6.setRubroArticulo(rubro0);
 
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 
 			articuloInsumoRepository.save(articuloInsumo1);
 			articuloInsumoRepository.save(articuloInsumo2);
 			articuloInsumoRepository.save(articuloInsumo3);
-<<<<<<< HEAD
-=======
 			articuloInsumoRepository.save(articuloInsumo4);
 			articuloInsumoRepository.save(articuloInsumo5);
 			articuloInsumoRepository.save(articuloInsumo6);
 
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 
 			// Vinculamos la unidad medida al articulo -------------------------------------
 
@@ -473,11 +470,8 @@ public class Sprint3Application {
 					.auth0Id("User01")
 					.username("Cajero1")
 					.rol(Rol.Cajero)
-<<<<<<< HEAD
-					.contraseña("Cajero1")
-=======
+//					.contraseña("Cajero1")
 					.email("tilo@gmail.com")
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -487,11 +481,10 @@ public class Sprint3Application {
 					.auth0Id("User02")
 					.username("Unknow88")
 					.rol(Rol.Cliente)
-<<<<<<< HEAD
-					.contraseña("Cliente1")
-=======
+//					.contraseña("Cliente1")
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.email("Usuario2@gmail.com")
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -499,51 +492,53 @@ public class Sprint3Application {
 
 			Usuario usuario3 = Usuario.builder()
 					.auth0Id("User03")
-<<<<<<< HEAD
-					.username("Unknow88")
+//					.username("Unknow88")
 					.rol(Rol.Cliente)
-					.contraseña("Cliente2")
-=======
+//					.contraseña("Cliente2")
 					.username("Delivery")
 					.rol(Rol.Delivery)
 					.email("usuario3@hotmail.com")
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
 
 			Usuario usuario4 = Usuario.builder()
 					.auth0Id("User04")
 					.username("Delivery1")
 					.rol(Rol.Delivery)
-					.contraseña("Delivery1")
+//					.contraseña("Delivery1")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
 			Usuario usuario5 = Usuario.builder()
 					.auth0Id("User05")
 					.username("Administrador1")
 					.rol(Rol.Administrador)
-<<<<<<< HEAD
-					.contraseña("Administrador1")
+//					.contraseña("Administrador1")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
 
 			Usuario usuario6 = Usuario.builder()
 					.auth0Id("User06")
 					.username("Cocinero1")
 					.rol(Rol.Cocinero)
-					.contraseña("Cocinero1")
-=======
+//					.contraseña("Cocinero1")
 					.email("user0404@outlook.com")
->>>>>>> f136c52fd57826252a98e065c853891c0af5cfaf
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
+					.password(passwordEncoder.encode("desarrollo"))
+
 					.build();
 
 			usuarioRepository.save(usuario1);

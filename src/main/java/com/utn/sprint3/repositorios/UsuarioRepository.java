@@ -75,7 +75,7 @@ public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
                     "    d.localidad AS localidad_Empleado, " +
                     "    d.calle AS calle_Empleado, " +
                     "    d.numero AS nro_direccion_Empleado, " +
-                    "    u.contraseña AS contraseña_Empleado, " +
+                    "    u.password AS contraseña_Empleado, " +
                     "    e.telefono AS telefono_Empleado " +
                     "FROM " +
                     "    Usuario u " +

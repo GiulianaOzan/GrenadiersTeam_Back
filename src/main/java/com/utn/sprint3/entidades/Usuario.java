@@ -34,13 +34,16 @@ public class Usuario extends BaseEntidad implements UserDetails {
     @Column(name = "rol")
     private Rol rol;
 
-    @NotNull
-    @Column(name = "contraseña", nullable = false)
-    private String contraseña;
+//    @NotNull
+//    @Column(name = "contraseña", nullable = false)
+//    private String contraseña;
 
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
+    private String email;
 
     @NotNull
     @Column(name = "fecha_alta")
