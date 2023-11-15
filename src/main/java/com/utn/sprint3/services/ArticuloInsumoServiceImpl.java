@@ -53,14 +53,16 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<Articulo_Insumo, 
             List<DTOInsumoRubro> dtos = new ArrayList<>();
 
             for (Object[] resultado : resultados) {
-                DTOInsumoRubro dto = new DTOInsumoRubro();
-                dto.setInsumoDenominacion((String) resultado[1]);
-                dto.setRubroDenominacion((String) resultado[2]);
-                dto.setRubroPadreDenominacion((String) resultado[3]);
-                dto.setRubroEstado((EstadoAB) resultado[4]);
+                DTOInsumoRubro dto = new DTOInsumoRubro(
+                        (Long) resultado[0],
+                        (String) resultado[1],
+                        (String) resultado[2],
+                        (String) resultado[3],
+                        EstadoAB.valueOf((String) resultado[4])
+                );
+
                 dtos.add(dto);
             }
-
             return dtos;
         } catch (Exception e) {
             throw new Exception(e.getMessage());

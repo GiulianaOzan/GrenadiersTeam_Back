@@ -1,44 +1,22 @@
 package com.utn.sprint3.dtos;
 
 import com.utn.sprint3.enums.EstadoAB;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import lombok.*;
 
+@Builder
+@NoArgsConstructor
+@Data
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class DTOInsumoRubro {
+    private Long idArticulo;
     private String insumoDenominacion;
     private String rubroDenominacion;
     private String rubroPadreDenominacion;
+
+    @Enumerated(EnumType.STRING)
     private EstadoAB rubroEstado;
 
     // Getters y Setters
-
-    public String getInsumoDenominacion() {
-        return insumoDenominacion;
-    }
-
-    public void setInsumoDenominacion(String insumoDenominacion) {
-        this.insumoDenominacion = insumoDenominacion;
-    }
-
-    public String getRubroDenominacion() {
-        return rubroDenominacion;
-    }
-
-    public void setRubroDenominacion(String rubroDenominacion) {
-        this.rubroDenominacion = rubroDenominacion;
-    }
-
-    public String getRubroPadreDenominacion() {
-        return rubroPadreDenominacion;
-    }
-
-    public void setRubroPadreDenominacion(String rubroPadreDenominacion) {
-        this.rubroPadreDenominacion = rubroPadreDenominacion;
-    }
-
-    public EstadoAB getRubroEstado() {
-        return rubroEstado;
-    }
-
-    public void setRubroEstado(EstadoAB rubroEstado) {
-        this.rubroEstado = rubroEstado;
-    }
 }

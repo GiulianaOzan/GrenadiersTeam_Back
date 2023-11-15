@@ -29,7 +29,10 @@ public class Usuario extends BaseEntidad{
     @Column(name = "rol")
     private Rol rol;
 
-   private String email;
+    @NotNull
+    @Column(name = "contraseña", nullable = false)
+    private String contraseña;
+
 
     @NotNull
     @Column(name = "fecha_alta")

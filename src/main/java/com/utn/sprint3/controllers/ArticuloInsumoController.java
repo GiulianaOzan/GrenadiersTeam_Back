@@ -40,12 +40,11 @@ public class ArticuloInsumoController extends BaseControllerImpl<Articulo_Insumo
 
     }
     @GetMapping("/insumosConRubrosYEstados")
-    public ResponseEntity<?> getInsumosConRubrosYEstados() {
+    public ResponseEntity<?> obtenerInsumosConRubrosYEstados() {
         try {
-            List<DTOInsumoRubro> insumosConRubrosYEstados = servicio.obtenerInsumosConRubrosYEstados();
-            return ResponseEntity.status(HttpStatus.OK).body(insumosConRubrosYEstados);
+            return ResponseEntity.status(HttpStatus.OK).body(this.servicio.obtenerInsumosConRubrosYEstados());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"" + e.getMessage() + "\"}");
+            return ResponseEntity.status(HttpStatus.OK).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 

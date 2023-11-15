@@ -8,5 +8,9 @@ public enum Rol {
 
     Delivery,
 
-    Cajero
+    Delivery1,
+
+    Cajero,
+
+    Cocinero
 }

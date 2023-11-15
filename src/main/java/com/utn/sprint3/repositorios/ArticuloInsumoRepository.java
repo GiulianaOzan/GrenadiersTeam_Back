@@ -19,10 +19,10 @@ public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo
     Page<Articulo_Insumo> findByIdAndDenominacion(Long id, String denominacion, Pageable pageable);
 
     // Consulta JPQL con parámetros indexados
-    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro% OR ai.id LIKE %:filtro%")
+    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro%")
     List<Articulo_Insumo> search(@Param("filtro") String filtro);
 
-    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro% OR ai.id LIKE %:filtro%")
+    @Query("SELECT ai FROM Articulo_Insumo ai WHERE ai.denominacion LIKE %:filtro% ")
     Page<Articulo_Insumo> search(@Param("filtro") String filtro, Pageable pageable);
 
     // Consulta nativa
@@ -40,10 +40,15 @@ public interface ArticuloInsumoRepository extends BaseRepository<Articulo_Insumo
 
     // consulta para DTO
     @Query(
-            value = "SELECT ai.id, ai.denominacion AS denominacionArticulo, ra.denominacion AS rubroDenominacion, rg.denominacion AS rubroPadreDenominacion, ra.estadoAB AS rubroEstado " +
-                    "FROM Articulo_Insumo ai " +
-                    "INNER JOIN RubroArticulo ra ON ai.rubroArticulo.id = ra.id " +
-                    "LEFT JOIN RubroArticulo rg ON ra.rubroPadre.id = rg.id ",
+            value = "SELECT \n" +
+                    "ai.ID AS idInsumo,"+
+                    "ai.DENOMINACION AS denominacionArticulo,\n"+
+                    " ra.DENOMINACION AS rubroDenominacion, \n"+
+                    " rg.DENOMINACION AS rubroPadreDenominacion,\n"+
+                    " ra.ESTADOAB AS rubroEstado \n "+
+                    "FROM ARTICULO_INSUMO ai \n" +
+                    "INNER JOIN RUBRO_ARTICULO ra ON ai.ID_RUBRO_ARTICULO = ra.ID \n " +
+                    "LEFT JOIN RUBRO_ENTIDAD rg ON ra.ID_RUBRO_PADRE = rg.ID; ",
             nativeQuery = true
     )
     List<Object[]> obtenerInsumosConRubrosYEstados();
