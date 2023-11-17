@@ -59,7 +59,7 @@ public class SecurityConfig {
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/articulomanufacturados/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).permitAll()
-                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/empleados/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/empleados/**")).hasAuthority("Administrador")
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesArticulosManufacturados/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallesfacturas/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/api/v1/detallespedidos/**")).permitAll()

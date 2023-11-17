@@ -3,6 +3,7 @@ package com.utn.sprint3.config;
 
 import com.utn.sprint3.entidades.Usuario;
 import com.utn.sprint3.repositorios.UsuarioRepository;
+import jakarta.validation.constraints.Email;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +40,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService UserDetailService() {
-        return username -> usuarioRepository.findByUsername(username)
+        return email -> usuarioRepository.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException("User not found"));
     }
 

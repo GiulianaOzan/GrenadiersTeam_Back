@@ -483,8 +483,6 @@ public class Sprint3Application {
 					.username("Unknow88")
 					.rol(Rol.Cliente)
 //					.contraseña("Cliente1")
-					.password(passwordEncoder.encode("desarrollo"))
-
 					.email("Usuario2@gmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
@@ -512,10 +510,12 @@ public class Sprint3Application {
 					.username("Delivery1")
 					.rol(Rol.Delivery)
 //					.contraseña("Delivery1")
+					.email("Delivery1@hotmail.com")
+
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
-					.password(passwordEncoder.encode("desarrollo"))
+					.password(passwordEncoder.encode("delivery"))
 
 					.build();
 			Usuario usuario5 = Usuario.builder()
@@ -523,10 +523,11 @@ public class Sprint3Application {
 					.username("Administrador1")
 					.rol(Rol.Administrador)
 //					.contraseña("Administrador1")
+					.email("Administrador1@hotmail.com")
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
-					.password(passwordEncoder.encode("desarrollo"))
+					.password(passwordEncoder.encode("administrador"))
 
 					.build();
 

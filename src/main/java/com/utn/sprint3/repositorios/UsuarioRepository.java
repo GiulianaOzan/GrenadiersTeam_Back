@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository <Usuario,Long> {
-    Optional<Usuario> findByUsername( String username);
+    Optional<Usuario> findByEmail( String email);
     Page<Usuario> findByUsername(String username, Pageable pageable);
     List<Usuario> findByRol(Rol rol);
     Page<Usuario> findByRol(Rol rol, Pageable pageable);
