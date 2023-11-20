@@ -11,27 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-    @RestController
-    @RequestMapping("/auth")
-    @RequiredArgsConstructor
-    public class AuthController {
-private final AuthService authService;
 
-        @PostMapping(value = "login")
-        public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request)
-        {
-            return ResponseEntity.ok(authService.login(request));
-        }
-        //ResponseEntity representa toda la respuesta HTTP. Incluye codDeEstado, encabezado y cuerpo de respuesta
-        //La respuesta es del tipo AuthResponse como definimos
-        //con el RequestBody accedemos a las credenciales del usuario
+@RestController
+@RequestMapping("/auth")
+@RequiredArgsConstructor
+public class AuthController {
+    private final AuthService authService;
 
-
-
-        @PostMapping(value = "register")
-        public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request)
-        {
-            return ResponseEntity.ok(authService.register(request));
-        }
-
+    @PostMapping(value = "login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request)
+    {
+        return ResponseEntity.ok(authService.login(request));
     }
+    //ResponseEntity representa toda la respuesta HTTP. Incluye codDeEstado, encabezado y cuerpo de respuesta
+    //La respuesta es del tipo AuthResponse como definimos
+    //con el RequestBody accedemos a las credenciales del usuario
+
+
+
+    @PostMapping(value = "register")
+    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request)
+    {
+        return ResponseEntity.ok(authService.register(request));
+    }
+
+}

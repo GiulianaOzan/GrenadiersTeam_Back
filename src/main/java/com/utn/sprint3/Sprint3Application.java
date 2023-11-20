@@ -468,10 +468,12 @@ public class Sprint3Application {
 
 			Usuario usuario1 = Usuario.builder()
 					.auth0Id("User01")
-					.username("Cajero1")
+					.username("Cajero1@gmail.com")
 					.rol(Rol.Cajero)
 //					.contraseña("Cajero1")
+/*
 					.email("tilo@gmail.com")
+*/
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -480,10 +482,12 @@ public class Sprint3Application {
 
 			Usuario usuario2 = Usuario.builder()
 					.auth0Id("User02")
-					.username("Unknow88")
+					.username("Usuario2@gmail.com")
 					.rol(Rol.Cliente)
 //					.contraseña("Cliente1")
+/*
 					.email("Usuario2@gmail.com")
+*/
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -493,11 +497,15 @@ public class Sprint3Application {
 			Usuario usuario3 = Usuario.builder()
 					.auth0Id("User03")
 //					.username("Unknow88")
+/*
 					.rol(Rol.Cliente)
+*/
 //					.contraseña("Cliente2")
-					.username("Delivery")
+					.username("Delivery1@hotmail.com")
 					.rol(Rol.Delivery)
+/*
 					.email("usuario3@hotmail.com")
+*/
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -507,10 +515,12 @@ public class Sprint3Application {
 
 			Usuario usuario4 = Usuario.builder()
 					.auth0Id("User04")
-					.username("Delivery1")
+					.username("Delivery2@hotmail.com")
 					.rol(Rol.Delivery)
 //					.contraseña("Delivery1")
+/*
 					.email("Delivery1@hotmail.com")
+*/
 
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
@@ -520,10 +530,12 @@ public class Sprint3Application {
 					.build();
 			Usuario usuario5 = Usuario.builder()
 					.auth0Id("User05")
-					.username("Administrador1")
+					.username("Administrador1@hotmail.com")
 					.rol(Rol.Administrador)
 //					.contraseña("Administrador1")
+/*
 					.email("Administrador1@hotmail.com")
+*/
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -533,10 +545,12 @@ public class Sprint3Application {
 
 			Usuario usuario6 = Usuario.builder()
 					.auth0Id("User06")
-					.username("Cocinero1")
+					.username("Cocinero1@gmail.com")
 					.rol(Rol.Cocinero)
 //					.contraseña("Cocinero1")
+/*
 					.email("user0404@outlook.com")
+*/
 					.fechaAlta(fecha)
 					.fechaBaja(fecha)
 					.fechaModificacion(fecha)
@@ -550,8 +564,6 @@ public class Sprint3Application {
 			usuarioRepository.save(usuario4);
 			usuarioRepository.save(usuario5);
 			usuarioRepository.save(usuario6);
-
-
 
 			//VINCULAR DOMICILIO CON CLIENTE -----------------------------------------------
 

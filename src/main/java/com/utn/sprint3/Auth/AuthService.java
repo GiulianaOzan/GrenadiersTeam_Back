@@ -21,8 +21,8 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        UserDetails user=usuarioRepository.findByEmail(request.getEmail()).orElseThrow();
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+        UserDetails user=usuarioRepository.findByUsername(request.getUsername()).orElseThrow();
         String token=jwtService.getToken(user);
         return AuthResponse.builder()
                 .token(token)
@@ -32,10 +32,9 @@ public class AuthService {
 
     public AuthResponse register(RegisterRequest request) {
         Usuario usuario = Usuario.builder()
-                .email(request.getEmail()) //lo tenemos en el request de la peti, entonces lo obtenemos directamente
+                .username(request.getUsername()) //lo tenemos en el request de la peti, entonces lo obtenemos directamente
                 .password(passwordEncoder.encode(request.getPassword()))
                 .auth0Id(request.auth0Id)
-                .username(request.username)
                 .rol(Rol.Cliente)
                 .build();
         usuarioRepository.save(usuario); //insertamos el nuevo registro en la BBDD
@@ -45,4 +44,5 @@ public class AuthService {
                 .token(jwtService.getToken(usuario))
                 .build();
     }
+
 }
