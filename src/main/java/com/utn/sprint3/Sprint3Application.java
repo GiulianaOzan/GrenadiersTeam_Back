@@ -91,7 +91,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					.rubroPadre(rubro0)
+					//.rubroPadre(rubro0)
 					.build();
 
 			RubroArticulo rubro2 = RubroArticulo.builder()
@@ -100,7 +100,7 @@ public class Sprint3Application {
 					.fechaBaja(fecha)
 					.estadoAB(EstadoAB.Alta)
 					.fechaModificacion(fecha)
-					.rubroPadre(rubro0)
+					//.rubroPadre(rubro0)
 					.build();
 
 			rubroArticuloRepository.save(rubro0);

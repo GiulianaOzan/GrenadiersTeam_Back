@@ -24,7 +24,9 @@ import java.util.Arrays;
 
 @Configuration
 @RequiredArgsConstructor
+
 public class ApplicationConfig {
+
     private final UsuarioRepository usuarioRepository;
 
     @Bean
@@ -63,7 +65,6 @@ public class ApplicationConfig {
     }
 
 }
-
 
 
 

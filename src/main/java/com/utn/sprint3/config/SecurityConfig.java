@@ -34,15 +34,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
         return http
-                .csrf(csrf ->
-                        csrf.disable())
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authRequest ->
-                                authRequest
-                                        //Autenticacion
-                                        .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
+                        authRequest
+                                //Rutas publicas:
 
-                                        //Consola H2:
-                                        .requestMatchers(PathRequest.toH2Console()).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll() //HABILITACION GLOBAL
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/**")).permitAll()
+                                .requestMatchers(PathRequest.toH2Console()).permitAll()
 
                                         //Autorizacion de acceso a la url:
                                         //.requestMatchers(new AntPathRequestMatcher("/api/v1/facturas")).hasAnyAuthority("Cliente")
@@ -77,15 +76,17 @@ public class SecurityConfig {
 
 
                 )
-                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) //sino no levanta H2?? duda
-                .sessionManagement(sessionManager ->
+                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) //H2
+                .sessionManagement(sessionManager->
                         sessionManager
-                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
                 .authenticationProvider(authProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 
 
     }
-    }
+
+}
 
